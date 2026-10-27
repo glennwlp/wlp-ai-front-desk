@@ -12,7 +12,9 @@ const { title, description } = Astro.props;
   <meta name="description" content={description} />
   <meta name="robots" content="noindex" />
   <meta name="theme-color" content="#ffffff" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <script is:inline>if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) document.documentElement.classList.add('motion');</script>
