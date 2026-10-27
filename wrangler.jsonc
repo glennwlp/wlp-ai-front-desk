@@ -10,4 +10,6 @@
     "not_found_handling": "404-page",
     "html_handling": "auto-trailing-slash"
   }
+  // Bindings set at deploy time, not in the repo: secret_text TURNSTILE_SECRET, NOTION_TOKEN, FORM_SECRET, APPS_SCRIPT_URL; plain_text NOTION_DATABASE_ID.
+  // Public Turnstile sitekey is a build-time env var: PUBLIC_TURNSTILE_SITEKEY.
 }

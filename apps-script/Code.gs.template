@@ -1,0 +1,37 @@
+// AI Front Desk early-access signups -> email. Deploy as a Web app (Execute as: Me, Who has access: Anyone).
+// The Cloudflare Worker (POST /api/signup) calls this with { secret, fields: { email, source, submitted, notes } }.
+const SHARED_SECRET = '__FORM_SECRET__'; // must equal the Worker's FORM_SECRET binding
+const TO = 'glenn@whitelabelpress.com';
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function doPost(e) {
+  try {
+    const d = JSON.parse(e.postData.contents);
+    if (!d || d.secret !== SHARED_SECRET) return out({ ok: false, error: 'unauthorized' });
+    const f = d.fields || {};
+    const when = f.submitted ? new Date(f.submitted) : new Date();
+    const manila = Utilities.formatDate(when, 'Asia/Manila', 'yyyy-MM-dd HH:mm:ss') + ' (Asia/Manila)';
+    const lines = [
+      'Email: ' + (f.email || ''),
+      'Time: ' + manila,
+      'Time (UTC): ' + when.toISOString(),
+      'Source: ' + (f.source || ''),
+    ];
+    if (f.notes) lines.push('Page / UTM: ' + f.notes);
+    const opts = { to: TO, subject: 'New AI Front Desk early-access signup', body: lines.join('\n'), name: 'AI Front Desk signups' };
+    if (f.email && EMAIL_RE.test(f.email)) opts.replyTo = f.email;
+    MailApp.sendEmail(opts);
+    return out({ ok: true });
+  } catch (err) {
+    return out({ ok: false, error: String(err) });
+  }
+}
+
+// Run once from the editor to grant the Gmail/MailApp permission and check delivery.
+function testSend() {
+  MailApp.sendEmail(TO, 'AI Front Desk signup form test', 'Apps Script can send mail.');
+}
+
+function out(o) {
+  return ContentService.createTextOutput(JSON.stringify(o)).setMimeType(ContentService.MimeType.JSON);
+}
