@@ -4,3 +4,7 @@ dist
 .wrangler
 .env*
 .playwright-mcp/
+.impeccable/review/
+.codex/
+.cursor/
+.gemini/
