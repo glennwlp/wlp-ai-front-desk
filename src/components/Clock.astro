@@ -1,0 +1,15 @@
+---
+// Authored SVG clock face. Hands are computed from the time; the face is decorative.
+interface Props { hour: number; minute: number; size?: number; class?: string }
+const { hour, minute, size = 44, class: cls = '' } = Astro.props;
+const hA = ((hour % 12) + minute / 60) * 30;
+const mA = minute * 6;
+const ticks = [0, 3, 6, 9].map((i) => i * 30);
+---
+<svg width={size} height={size} viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-linecap="round" class={cls} aria-hidden="true">
+  <circle cx="24" cy="24" r="22" stroke-width="1.5" />
+  {ticks.map((a) => <line x1="24" y1="5.5" x2="24" y2="9" stroke-width="1.5" transform={`rotate(${a} 24 24)`} />)}
+  <line x1="24" y1="24" x2="24" y2="14" stroke-width="2.5" transform={`rotate(${hA} 24 24)`} />
+  <line x1="24" y1="24" x2="24" y2="8.5" stroke-width="1.5" transform={`rotate(${mA} 24 24)`} />
+  <circle cx="24" cy="24" r="2" fill="currentColor" stroke="none" />
+</svg>

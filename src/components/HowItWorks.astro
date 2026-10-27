@@ -4,17 +4,17 @@ const steps = [
   ['1', 'Add what you know', 'Upload your FAQs, price list, and policies, or point it at your current website.'],
   ['2', 'Connect your calendar', 'Add your services, durations, and opening hours so it only offers times that are actually free.'],
   ['3', 'Paste the widget', 'Add one snippet to WordPress, Shopify, Wix, or any site. Set the colours to match your brand.'],
-  ['4', 'Check in when you like', 'Read conversations, see bookings, and pick up handoffs from the dashboard.'],
+  ['4', 'Check in when you like', 'Read conversations, see bookings, and pick up handoffs from the dashboard. Your first look can wait until 7:05 AM.'],
 ];
 ---
 <section id="how-it-works" class="bg-white">
   <div class="wrap flex flex-col gap-10 py-16 md:gap-14 lg:py-[120px]">
-    <SectionHeader title="Set up in an afternoon">No code to write. If you can fill in a form and paste one line into your website, you can launch it.</SectionHeader>
-    <ol class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-      {steps.map(([n, t, d]) => (
-        <li class="flex flex-col gap-[14px] border-t-2 border-ink pt-4">
-          <span class="font-display text-[56px] font-bold leading-none tracking-[-1px] text-accent">{n}</span>
-          <h3 class="font-body text-[20px] font-semibold leading-[1.3] tracking-[-0.2px] text-ink">{t}</h3>
+    <SectionHeader n="02" title="Set up in an afternoon">No code to write. If you can fill in a form and paste one line into your website, you can launch it.</SectionHeader>
+    <ol class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-rule">
+      {steps.map(([n, t, d], i) => (
+        <li class:list={['flex flex-col gap-[14px]', i > 0 && 'lg:pl-8', i < 3 && 'lg:pr-8']}>
+          <span class="time text-[56px] leading-none text-accent" aria-hidden="true">{n}</span>
+          <h3 class="font-body text-[19px] font-semibold leading-[1.3] tracking-[-0.01em] text-ink"><span class="sr-only">Step {n}: </span>{t}</h3>
           <p class="text-[16px] leading-[1.6] text-graphite">{d}</p>
         </li>
       ))}

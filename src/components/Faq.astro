@@ -1,25 +1,24 @@
 ---
+import SectionHeader from './SectionHeader.astro';
 const faqs = [
   ['Is it only for booking appointments?', 'No. Booking is one part of it. It also answers questions about your services, prices, hours, and policies, sends reminders, and hands conversations to your team when a person is needed.'],
   ['How do I teach it about my business?', 'Upload your FAQs, price list, and documents, or point it at your website. You can see and edit what it knows from the dashboard.'],
   ['What happens when it doesn’t know the answer?', 'It tells the customer it’s checking with the team and passes the conversation to you with the full history.'],
   ['Which channels does it work on?', 'Your website first. Messenger, WhatsApp, and Instagram are planned next.'],
   ['Will it book times I’m not available?', 'No. It reads your connected calendar and your opening hours, and only offers free slots.'],
+  ['Can agencies use it for their clients?', 'Yes. The Custom plan is for agencies and multi-location businesses: your branding on the widget, several locations and calendars, and help with setup. Custom pricing is coming soon, so email us and we’ll talk it through.'],
   ['When can I start?', 'We’re onboarding a small group of businesses first. Join early access and we’ll contact you with setup details.'],
 ];
 ---
-<section id="faq" class="bg-white">
-  <div class="wrap py-16 lg:py-[120px]">
-    <div class="grid gap-10 lg:grid-cols-[minmax(0,380px)_minmax(0,720px)] lg:justify-between lg:gap-12">
-      <div class="flex flex-col gap-5">
-        <h2 class="h2">Common questions</h2>
-        <p class="lead max-w-[360px]">Something else on your mind? Email <a href="mailto:hello@whitelabelpress.com" class="underline decoration-border-strong underline-offset-2 hover:text-accent">hello@whitelabelpress.com</a> and someone from the team will reply.</p>
-      </div>
-      <div class="border-t border-ink">
+<section id="faq" class="bg-wash">
+  <div class="wrap flex flex-col gap-10 py-16 md:gap-14 lg:py-[120px]">
+    <SectionHeader n="06" title="Common questions">Something else on your mind? Email <a href="mailto:hello@whitelabelpress.com" class="underline decoration-border-strong underline-offset-2 hover:text-accent">hello@whitelabelpress.com</a> and someone from the team will reply.</SectionHeader>
+    <div class="lg:pl-[128px]">
+      <div class="max-w-[820px] border-t border-ink">
         {faqs.map(([q, a], i) => (
-          <details class="faq border-b border-rule" open={i === 0}>
-            <summary class="flex items-center justify-between gap-6 py-6">
-              <span class="text-[19px] font-semibold leading-[1.35] tracking-[-0.2px] text-ink">{q}</span>
+          <details class="faq border-b border-border-strong" open={i === 0}>
+            <summary class="flex min-h-11 items-center justify-between gap-6 py-6">
+              <span class="font-display text-[21px] font-semibold leading-[1.3] tracking-[-0.01em] text-ink">{q}</span>
               <span class="shrink-0 text-[24px] leading-none text-ink" aria-hidden="true"><span class="t-plus">+</span><span class="t-minus text-accent">–</span></span>
             </summary>
             <p class="-mt-[12px] max-w-[620px] pb-6 text-[16px] leading-[1.6] text-graphite">{a}</p>

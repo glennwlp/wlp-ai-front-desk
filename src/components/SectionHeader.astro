@@ -1,8 +1,9 @@
 ---
-interface Props { title: string; class?: string }
-const { title, class: cls = '' } = Astro.props;
+interface Props { n: string; title: string; dark?: boolean }
+const { n, title, dark = false } = Astro.props;
 ---
-<div class:list={['flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-10', cls]}>
-  <h2 class="h2 max-w-[640px]">{title}</h2>
-  <p class="lead max-w-[460px] md:shrink-0 md:basis-[460px]"><slot /></p>
+<div class:list={['grid grid-cols-[36px_minmax(0,1fr)] gap-x-3 gap-y-5 border-t pt-6 sm:grid-cols-[48px_minmax(0,1fr)] lg:grid-cols-[88px_minmax(0,1fr)_minmax(0,400px)] lg:gap-x-10', dark ? 'border-border-dark' : 'border-ink']}>
+  <span class:list={['time pt-[6px] text-[20px] leading-none lg:pt-[10px] lg:text-[26px]', dark ? 'text-accent-bright' : 'text-accent-ink']} aria-hidden="true">{n}</span>
+  <h2 class:list={['h2 max-w-[660px]', dark && '!text-white']}>{title}</h2>
+  <p class:list={['lead col-span-2 max-w-[460px] lg:col-span-1 lg:col-start-3 lg:self-end', dark && '!text-on-dark-muted']}><slot /></p>
 </div>

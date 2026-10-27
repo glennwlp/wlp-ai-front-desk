@@ -5,24 +5,24 @@ import barber from '../assets/img/barber.jpg';
 import dental from '../assets/img/dental.jpg';
 import owner from '../assets/img/owner.jpg';
 const cards = [
-  { img: barber, alt: 'Barber cutting a customer’s hair in a brick-walled barbershop', title: 'Barbers and salons', quote: '“Most of our bookings used to come in after 8pm, when we’re closed. Now they’re in the calendar by morning.”', who: 'Owner, barbershop' },
-  { img: dental, alt: 'Dentist treating a patient in a bright clinic', title: 'Clinics and practices', quote: '“Patients ask the same ten questions about prices and insurance. It answers them and books the check-up.”', who: 'Practice manager, dental clinic' },
-  { img: owner, alt: 'Smiling studio owner holding a “We’re open” sign', title: 'Studios and local services', quote: '“I don’t have a receptionist. It means I can stay with the client in front of me instead of my phone.”', who: 'Owner, wellness studio' },
+  { img: barber, alt: 'Barber cutting a customer’s hair in a brick-walled barbershop', title: 'Barbers and salons', quote: 'Most of our bookings used to come in after 8pm, when we’re closed. Now they’re in the calendar by morning.', who: 'Owner, barbershop' },
+  { img: dental, alt: 'Dentist treating a patient in a bright clinic', title: 'Clinics and practices', quote: 'Patients ask the same ten questions about prices and insurance. It answers them and books the check-up.', who: 'Practice manager, dental clinic' },
+  { img: owner, alt: 'Smiling studio owner holding a “We’re open” sign', title: 'Studios and local services', quote: 'I don’t have a receptionist. It means I can stay with the client in front of me instead of my phone.', who: 'Owner, wellness studio' },
 ];
 ---
-<section class="bg-wash">
+<section class="bg-white">
   <div class="wrap flex flex-col gap-10 py-16 md:gap-14 lg:py-[120px]">
-    <SectionHeader title="Made for businesses that run on appointments">If your day is a calendar of customers, and your phone and inbox never stop, it was built for you.</SectionHeader>
-    <div class="grid gap-10 lg:grid-cols-3 lg:items-start lg:gap-8">
-      {cards.map((c) => (
-        <article class="flex flex-col gap-5">
-          <Image src={c.img} alt={c.alt} widths={[400, 760]} sizes="(min-width: 1024px) 380px, 100vw" format="webp" quality={76} class="h-[260px] w-full rounded-ui object-cover sm:h-[300px]" />
-          <h3 class="font-body text-[20px] font-semibold leading-[1.3] tracking-[-0.2px] text-ink">{c.title}</h3>
-          <p class="text-[17px] leading-[1.55] text-ink">{c.quote}</p>
+    <SectionHeader n="03" title="Made for businesses that run on appointments">If your day is a calendar of customers, and your phone and inbox never stop, it was built for you.</SectionHeader>
+    <div class="grid gap-12 lg:grid-cols-3 lg:gap-0 lg:divide-x lg:divide-rule">
+      {cards.map((c, i) => (
+        <figure class:list={['flex flex-col gap-5', i > 0 && 'lg:pl-8', i < 2 && 'lg:pr-8']}>
+          <Image src={c.img} alt={c.alt} widths={[400, 760]} sizes="(min-width: 1024px) 380px, 100vw" format="webp" quality={76} class="h-[220px] w-full rounded-[2px] object-cover sm:h-[260px]" />
+          <figcaption class="font-body text-[17px] font-semibold leading-[1.3] tracking-[-0.01em] text-ink">{c.title}</figcaption>
+          <blockquote class="font-display text-[23px] font-normal italic leading-[1.3] tracking-[-0.01em] text-ink"><span class="mr-[2px] text-accent" aria-hidden="true">“</span>{c.quote}<span class="text-accent" aria-hidden="true">”</span></blockquote>
           <p class="text-[14px] leading-[1.4] text-graphite">{c.who}</p>
-        </article>
+        </figure>
       ))}
     </div>
-    <p class="text-[13px] leading-[1.4] text-faint">Sample quotes for layout only. Replace with real early-access customers before launch.</p>
+    <p class="border-t border-rule pt-4 text-[13px] leading-[1.4] text-faint"><span class="font-semibold">Sample quotes for layout only.</span> Replace with real early-access customers before launch.</p>
   </div>
 </section>

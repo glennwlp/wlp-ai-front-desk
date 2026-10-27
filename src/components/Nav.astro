@@ -1,12 +1,12 @@
 ---
 import Logo from './Logo.astro';
-const links = [['Features', '#features'], ['How it works', '#how-it-works'], ['Pricing', '#pricing'], ['FAQ', '#faq']];
+const links = [['The night', '#night'], ['How it works', '#how-it-works'], ['For agencies', '#agencies'], ['Pricing', '#pricing'], ['FAQ', '#faq']];
 ---
 <header id="site-header" class="sticky top-0 z-50 bg-white transition-shadow">
   <div class="wrap relative flex h-[72px] items-center justify-between">
     <Logo />
-    <div class="flex items-center gap-2 sm:gap-3 lg:gap-10">
-      <nav class="hidden items-center gap-10 lg:flex" aria-label="Main">
+    <div class="flex items-center gap-2 sm:gap-3 lg:gap-6 xl:gap-10">
+      <nav class="hidden items-center gap-6 lg:flex xl:gap-9" aria-label="Main">
         {links.map(([l, h]) => <a href={h} class="text-[15px] font-medium leading-[1.2] text-ink hover:text-accent">{l}</a>)}
       </nav>
       <a href="#early-access" class="btn btn-dark !min-h-11 !px-3.5 !py-2 !text-[15px] sm:!px-6 sm:!py-[14px] sm:!text-[16px]"><span class="sm:hidden">Early access</span><span class="hidden sm:inline">Get early access</span></a>
