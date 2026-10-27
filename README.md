@@ -18,7 +18,7 @@ npm run deploy   # build + wrangler deploy (needs Cloudflare auth)
 
 ## Demo content
 
-This is a design build, not a live product. The early-access form does not send anything, Privacy/Terms links are inert, pricing shows `$XX` placeholders, and customer quotes are sample text. The page is marked `noindex`.
+This is a design build, not a live product. The early-access form does not send anything, Privacy/Terms links are inert, and customer quotes are sample text. The page is marked `noindex`.
 
 ## Contact form backend (`POST /api/contact`)
 The contact form (`src/components/Contact.astro`, section `#contact`) posts name, email, optional business name and a message (max 2000 chars). The Worker (`worker/index.js`) validates it, checks the honeypot (`company_url`) and Cloudflare Turnstile, then in parallel (a) creates a row in the Notion database "AI Front Desk – Contact messages" and (b) calls the Apps Script web app (`apps-script/Code.gs.template`), which emails glenn@whitelabelpress.com (reply-to is the sender). It succeeds if at least one of the two worked and returns a 502 JSON error if both fail.

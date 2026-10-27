@@ -2,25 +2,25 @@
 import SectionHeader from './SectionHeader.astro';
 const plans = [
   {
-    name: 'Starter', price: '$XX', desc: 'For owners who want every question answered, day and night.',
+    name: 'Starter', price: '$19', volume: '500 conversations a month', setup: 'Setup $149, one-time', desc: 'For owners who want every question answered, day and night.',
     items: ['Website chat widget', 'Trained on your FAQs and documents', 'Handoff to you by email', 'Conversation history'],
     cta: 'Contact us', href: '#contact',
   },
   {
-    name: 'Growth', price: '$XX', badge: 'Includes booking', featured: true, desc: 'For businesses that take bookings every day.',
+    name: 'Standard', price: '$35', volume: '1,000 conversations a month', setup: 'Setup with booking $299, one-time', badge: 'Includes booking', featured: true, desc: 'For businesses that take bookings every day.',
     items: ['Everything in Starter', 'Booking with calendar sync', 'Reminders before every appointment', 'Live handoff to your team', 'Messenger, WhatsApp, Instagram when available'],
     cta: 'Contact us', href: '#contact',
   },
   {
-    name: 'Custom', price: 'Coming soon', compact: true, desc: 'For several locations, or agencies setting it up for clients.',
-    items: ['Everything in Growth', 'Multiple locations and calendars', 'Your branding on the widget', 'Help with setup'],
+    name: 'Growth and Pro', price: 'Coming later', compact: true, desc: 'For busier businesses that need more conversations each month.',
+    items: ['Everything in Standard', 'Growth: $59 for 2,000 conversations', 'Pro: $99 for 4,000 conversations'],
     cta: 'Talk to us', href: 'mailto:glenn@whitelabelpress.com',
   },
 ];
 ---
 <section id="pricing" class="bg-stage">
   <div class="wrap py-16 lg:py-28">
-    <SectionHeader title="Pricing">Prices will be confirmed at launch. Early customers keep their launch price.</SectionHeader>
+    <SectionHeader title="Pricing">Simple monthly plans, and we set it up for you. Early customers keep their launch price and pay no setup fee.</SectionHeader>
     <div class="mt-12 grid items-stretch gap-4 lg:mt-16 lg:grid-cols-3 lg:gap-5">
       {plans.map((p) => (
         <div class:list={['flex flex-col gap-5 rounded-[28px] px-6 py-8 sm:px-8 lg:py-9', p.featured ? 'on-dark bg-ink text-white shadow-[var(--shadow-lift)]' : 'bg-white']}>
@@ -32,6 +32,7 @@ const plans = [
             <span class:list={['font-extrabold leading-none tracking-[-0.04em]', p.compact ? 'text-[38px]' : 'text-[56px]', p.featured ? 'text-white' : 'text-ink']}>{p.price}</span>
             {!p.compact && <span class:list={['text-[16px] font-medium', p.featured ? 'text-on-dark-muted' : 'text-graphite']}>per month</span>}
           </p>
+          {p.volume && <p class:list={['-mt-2 text-[15px] font-semibold leading-[1.4]', p.featured ? 'text-accent' : 'text-accent-ink']}>{p.volume}</p>}
           <p class:list={['text-[17px] leading-[1.5]', p.featured ? 'text-on-dark-muted' : 'text-graphite']}>{p.desc}</p>
           <ul class:list={['flex flex-col gap-3 border-t pt-5', p.featured ? 'border-ink-line' : 'border-rule']}>
             {p.items.map((it) => (
@@ -41,9 +42,20 @@ const plans = [
             ))}
           </ul>
           <div class="flex-1"></div>
+          {p.setup && <p class:list={['text-[14px] leading-[1.4]', p.featured ? 'text-on-dark-muted' : 'text-graphite']}>{p.setup}</p>}
           <a href={p.href} class:list={['btn w-full', p.featured ? 'btn-primary' : 'btn-secondary']}>{p.cta}</a>
         </div>
       ))}
+    </div>
+    <div class="mt-4 grid gap-4 lg:mt-5 lg:grid-cols-2 lg:gap-5">
+      <div class="flex flex-col gap-2 rounded-[28px] bg-white px-6 py-6 sm:px-8">
+        <h3 class="text-[18px] font-extrabold leading-[1.3] tracking-[-0.01em] text-ink">We set it up for you</h3>
+        <p class="text-[16px] leading-[1.5] text-graphite">$149 for setup, or $299 with booking and your calendar connected. We add your documents, write the answers, install the widget, and test it. Free for early customers and on yearly billing.</p>
+      </div>
+      <div class="flex flex-col gap-2 rounded-[28px] bg-white px-6 py-6 sm:px-8">
+        <h3 class="text-[18px] font-extrabold leading-[1.3] tracking-[-0.01em] text-ink">Already on a WhitelabelPRESS care plan?</h3>
+        <p class="text-[16px] leading-[1.5] text-graphite">Add the front desk for $7 a month, with 300 conversations. We set it up and keep it up to date as part of your care plan.</p>
+      </div>
     </div>
   </div>
 </section>
