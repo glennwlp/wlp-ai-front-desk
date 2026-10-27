@@ -4,6 +4,6 @@ const { tone = 'light', size = 'nav' } = Astro.props;
 const dark = tone === 'dark';
 ---
 <a href="/" class="flex min-h-11 shrink-0 items-center gap-[10px] whitespace-nowrap" aria-label="WhitelabelPRESS AI Front Desk, home">
-  <span class:list={['font-extrabold tracking-[-0.03em]', size === 'nav' ? 'text-[18px] leading-[1.2] min-[400px]:text-[20px]' : 'text-[20px] leading-[1.2]', dark ? 'text-white' : 'text-ink']}>WhitelabelPRESS</span>
+  <span class:list={['font-brand font-semibold tracking-[-0.01em] [font-feature-settings:normal]', size === 'nav' ? 'text-[18px] leading-[1.2] min-[400px]:text-[20px]' : 'text-[20px] leading-[1.2]', dark ? 'text-white' : 'text-ink']}>Whitelabel<strong class="font-extrabold">PRESS</strong></span>
   <span class:list={['whitespace-nowrap rounded-full px-[10px] py-[3px] text-[13px] font-semibold leading-[1.4]', size === 'nav' && 'hidden sm:inline', dark ? 'bg-ink-raised text-on-dark-muted' : 'bg-stage text-graphite']}>AI Front Desk</span>
 </a>

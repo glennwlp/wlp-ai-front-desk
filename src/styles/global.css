@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "@fontsource-variable/figtree/wght.css";
+@import "@fontsource-variable/archivo/wght.css";
 
 /* Design tokens: white counter, ink type, soft grey stages, one bright teal accent */
 @theme {
@@ -27,6 +28,8 @@
   --font-display: "Figtree Variable", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Figtree Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-sans: var(--font-body);
+  /* Parent-brand wordmark only, matching whitelabelpress.com */
+  --font-brand: "Archivo Variable", ui-sans-serif, system-ui, sans-serif;
   --radius-control: 14px;
   --radius-chip: 999px;
   --radius-ui: 18px;
