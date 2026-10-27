@@ -33,7 +33,7 @@ One continuous conversation instead of separate tools: the same assistant answer
 - Launch channel is website chat only. Messenger, WhatsApp, and Instagram are planned and must be described as coming later, never as live.
 - English only for now.
 - Plans: Starter (chat, trained on documents, email handoff, history), Growth (adds calendar booking, reminders, live handoff, future channels), Custom (multi-location, widget branding, setup help; "coming soon").
-- Prices: Starter $19 (500 conversations/mo), Standard $35 (1,000, includes booking), Growth $59 and Pro $99 later; care plan add-on $7 (300). Setup $149, or $299 with booking; free for early customers and yearly billing. Early customers keep launch price.
+- Prices: Starter $19 (500 conversations/mo), Standard $35 (1,000, includes booking), Growth $59 and Pro $99 later; care plan add-on $7 (300). Setup $149, or $299 with booking; free for early customers. Early customers keep launch price.
 - Undecided: launch date, Privacy and Terms pages (links currently inert).
 - Site stack: Astro + Tailwind 4, static build served by a Cloudflare Worker, which also hosts the contact endpoint (Turnstile, Notion row, Apps Script email). Page is currently `noindex`.
 
