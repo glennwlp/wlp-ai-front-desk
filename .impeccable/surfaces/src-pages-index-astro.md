@@ -20,6 +20,6 @@ STORY: The visitor sees an assistant answer, offer times, and book in one thread
 
 FIRST VIEWPORT: Centred 800-weight headline (~72px) across the width, lead and two pill CTAs (Contact us = teal/ink, See how it works = outline) centred beneath, launch-channel note under them. Below, starting inside the fold, a wide rounded grey stage: barber photo centred, sample chat card overlapping left, booking card right.
 
-FORM: User-pinned (chatbot.com: font, rounded shapes, mono-plus-one-accent). No roll. seed: none (user-pinned direction). Signature interaction: tapping 9:30 in the hero chat books it, the booking card confirms; labelled as a demo; static under reduced motion.
+FORM: User-pinned (chatbot.com: font, rounded shapes, mono-plus-one-accent). Roll recorded; direction user-pinned. seed:ed8d3dc74377aff6 (direction user-pinned; roll recorded for reference only). Signature interaction: tapping 9:30 in the hero chat books it, the booking card confirms; labelled as a demo; static under reduced motion.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance

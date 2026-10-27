@@ -7,11 +7,10 @@ const items = [
 ---
 <section class="bg-white">
   <div class="wrap py-14 lg:py-20">
-    <ul class="grid gap-3 md:grid-cols-3">
+    <ul class="stage grid divide-y divide-stage-deep px-6 sm:px-10 md:grid-cols-3 md:divide-x md:divide-y-0 md:px-0 md:py-8">
       {items.map(([n, t]) => (
-        <li class="flex items-baseline gap-4 rounded-panel border-[1.5px] border-rule px-6 py-5 md:flex-col md:items-start md:gap-2 md:px-7 md:py-6">
-          <span class="shrink-0 text-[clamp(30px,3vw,40px)] font-extrabold leading-none tracking-[-0.03em] text-ink">{n}</span>
-          <span class="text-[17px] leading-[1.45] text-graphite">{t}</span>
+        <li class="py-5 text-[18px] leading-[1.45] text-graphite md:px-10 md:py-2">
+          <strong class="font-extrabold tracking-[-0.02em] text-ink">{n}</strong> {t}
         </li>
       ))}
     </ul>

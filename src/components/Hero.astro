@@ -16,30 +16,30 @@ import heroPhoto from '../assets/img/hero-barber.jpg';
 
     <!-- Stage: photo, sample chat and booking card -->
     <div class="stage relative mt-10 flex flex-col overflow-hidden px-4 pb-0 pt-6 sm:px-8 lg:mt-14 lg:block lg:h-[580px] lg:p-0">
-      <div class="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-[radial-gradient(60%_80%_at_50%_100%,rgb(31_200_176/0.22),transparent)]" aria-hidden="true"></div>
       <Image src={heroPhoto} alt="Barber in a navy work shirt smiling at the camera in his shop" widths={[360, 540, 760, 1080]} sizes="(min-width: 1024px) 440px, 100vw" format="webp" quality={78} loading="eager" class="relative order-1 mx-auto block h-[280px] w-full max-w-[460px] rounded-[24px] object-cover sm:h-[360px] lg:absolute lg:bottom-0 lg:left-1/2 lg:h-[520px] lg:w-[440px] lg:max-w-none lg:-translate-x-1/2 lg:rounded-b-none lg:rounded-t-[28px]" />
 
       <!-- Booking card -->
-      <div id="demo-booking" class="demo-reveal demo-card relative z-10 order-3 mx-auto mb-6 flex w-full max-w-[300px] items-center gap-[14px] rounded-[20px] bg-white py-[14px] pl-[14px] pr-4 shadow-[var(--shadow-lift)] lg:absolute lg:right-[7%] lg:top-[72px] lg:order-none lg:mx-0 lg:mb-0 lg:w-[280px]" aria-hidden="true">
-        <div class="flex h-14 w-[52px] shrink-0 flex-col items-center justify-center rounded-[14px] bg-accent text-ink">
+      <div id="demo-booking" class="demo-reveal demo-card relative z-10 order-3 mx-auto mb-6 flex w-full max-w-[300px] items-center gap-[14px] rounded-[20px] bg-white py-[14px] pl-[14px] pr-4 shadow-[var(--shadow-lift)] lg:absolute lg:left-[calc(50%+130px)] lg:top-[160px] lg:order-none lg:mx-0 lg:mb-0 lg:w-[290px]" aria-hidden="true">
+        <div class="demo-date flex h-14 w-[52px] shrink-0 flex-col items-center justify-center rounded-[14px] transition-colors">
           <span class="text-[12px] font-bold leading-[1.2]">Sat</span>
           <span class="text-[24px] font-extrabold leading-none">14</span>
         </div>
         <div class="flex min-w-0 flex-col gap-[2px]">
           <span class="text-[12px] font-bold leading-[1.3] text-accent-ink">New booking</span>
           <span class="text-[15px] font-bold leading-[1.3] text-ink">Haircut + beard trim</span>
-          <span class="text-[13px] leading-[1.4] text-graphite"><span data-demo-time>9:30</span> with Sam, booked by AI</span>
+          <span class="demo-yes text-[13px] leading-[1.4] text-graphite"><span data-demo-time>9:30</span> with Sam, booked by AI</span>
+          <span class="demo-no text-[13px] font-semibold leading-[1.4] text-accent-ink">Pick a time in the chat</span>
         </div>
       </div>
 
       <!-- Sample chat -->
       <div id="demo-chat" data-booked="true" class="relative z-10 order-2 mx-auto -mt-14 mb-4 w-full max-w-[360px] overflow-hidden rounded-[24px] bg-white shadow-[var(--shadow-lift)] sm:-mt-20 lg:absolute lg:left-[6%] lg:top-14 lg:mx-0 lg:mt-0 lg:w-[360px]">
-        <div class="flex items-center justify-between gap-3 border-b border-rule px-5 py-4">
-          <div class="flex items-center gap-[10px]">
-            <span class="grid size-8 place-items-center rounded-full bg-ink text-[13px] font-extrabold text-white" aria-hidden="true">N</span>
-            <span class="text-[15px] font-bold leading-[1.3] text-ink">Northside Barbers</span>
+        <div class="flex items-center gap-3 border-b border-rule px-5 py-4">
+          <span class="grid size-9 shrink-0 place-items-center rounded-full bg-ink text-[14px] font-extrabold text-white" aria-hidden="true">N</span>
+          <div class="flex min-w-0 flex-col">
+            <span class="whitespace-nowrap text-[15px] font-bold leading-[1.3] text-ink">Northside Barbers</span>
+            <span class="flex items-center gap-[6px] whitespace-nowrap text-[13px] font-semibold leading-[1.3] text-accent-ink"><span class="size-[7px] rounded-full bg-accent" aria-hidden="true"></span>Replies instantly</span>
           </div>
-          <span class="flex items-center gap-[6px] text-[13px] font-semibold leading-[1.3] text-accent-ink"><span class="size-[7px] rounded-full bg-accent" aria-hidden="true"></span>Replies instantly</span>
         </div>
         <div class="flex flex-col gap-[10px] bg-stage/60 p-4">
           <div class="flex justify-end"><div class="bubble bubble-customer text-[14px]">How much is a haircut?</div></div>

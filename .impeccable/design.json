@@ -1,0 +1,555 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-27T16:18:37.577Z",
+  "title": "Design System: AI Front Desk",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Counter Teal (provisional)",
+        "canonical": "#1fc8b0",
+        "oklch": "oklch(74.8% 0.131 179)",
+        "tonalRamp": [
+          "#06302c",
+          "#0a4f48",
+          "#0f766e",
+          "#17b39d",
+          "#1fc8b0",
+          "#7fe3d3",
+          "#b8f0e6",
+          "#dcf6f1"
+        ]
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "Counter Teal, pressed",
+        "canonical": "#17b39d",
+        "oklch": "oklch(68.8% 0.122 179)",
+        "tonalRamp": [
+          "#06302c",
+          "#0a4f48",
+          "#0f766e",
+          "#17b39d",
+          "#1fc8b0",
+          "#7fe3d3",
+          "#b8f0e6",
+          "#dcf6f1"
+        ]
+      },
+      "accent-ink": {
+        "role": "primary",
+        "displayName": "Deep Counter Teal",
+        "canonical": "#0f766e",
+        "oklch": "oklch(51.1% 0.086 186)",
+        "tonalRamp": [
+          "#06302c",
+          "#0a4f48",
+          "#0f766e",
+          "#17b39d",
+          "#1fc8b0",
+          "#7fe3d3",
+          "#b8f0e6",
+          "#dcf6f1"
+        ]
+      },
+      "accent-wash": {
+        "role": "primary",
+        "displayName": "Teal Wash",
+        "canonical": "#dcf6f1",
+        "oklch": "oklch(95.3% 0.028 182)",
+        "tonalRamp": [
+          "#06302c",
+          "#0a4f48",
+          "#0f766e",
+          "#17b39d",
+          "#1fc8b0",
+          "#7fe3d3",
+          "#b8f0e6",
+          "#dcf6f1"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Counter Ink",
+        "canonical": "#0f0f10",
+        "oklch": "oklch(16.9% 0.002 286)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262627",
+          "#454546",
+          "#666667",
+          "#89898a",
+          "#aeaeaf",
+          "#d1d1d1",
+          "#eeeeef"
+        ]
+      },
+      "ink-raised": {
+        "role": "neutral",
+        "displayName": "Raised Ink",
+        "canonical": "#26262b",
+        "oklch": "oklch(27.1% 0.009 285)",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#262629",
+          "#444549",
+          "#65656b",
+          "#88888e",
+          "#adadb2",
+          "#d0d0d4",
+          "#eeeef1"
+        ]
+      },
+      "ink-line": {
+        "role": "neutral",
+        "displayName": "Ink Line",
+        "canonical": "#34343b",
+        "oklch": "oklch(32.8% 0.012 285)",
+        "tonalRamp": [
+          "#0b0b0d",
+          "#26262a",
+          "#44444a",
+          "#65656d",
+          "#888890",
+          "#adadb3",
+          "#d0d0d5",
+          "#eeeef1"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 89)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "stage": {
+        "role": "neutral",
+        "displayName": "Stage Grey",
+        "canonical": "#f4f5f6",
+        "oklch": "oklch(97.0% 0.002 247)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262627",
+          "#444546",
+          "#656667",
+          "#88898a",
+          "#adaeae",
+          "#d0d1d1",
+          "#eeeeef"
+        ]
+      },
+      "stage-deep": {
+        "role": "neutral",
+        "displayName": "Deep Stage Grey",
+        "canonical": "#e9ebed",
+        "oklch": "oklch(93.9% 0.003 247)",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#262627",
+          "#444546",
+          "#656668",
+          "#88898b",
+          "#adaeaf",
+          "#d0d1d2",
+          "#eeeeef"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#e4e5e8",
+        "oklch": "oklch(92.2% 0.004 271)",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#262628",
+          "#444547",
+          "#656668",
+          "#88898b",
+          "#adaeb0",
+          "#d0d1d2",
+          "#eeeeef"
+        ]
+      },
+      "border-strong": {
+        "role": "neutral",
+        "displayName": "Field Edge",
+        "canonical": "#c6c8ce",
+        "oklch": "oklch(83.3% 0.009 271)",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#252629",
+          "#444549",
+          "#64666b",
+          "#87898e",
+          "#acaeb2",
+          "#d0d1d4",
+          "#eeeef1"
+        ]
+      },
+      "graphite": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "#4f5059",
+        "oklch": "oklch(43.4% 0.015 280)",
+        "tonalRamp": [
+          "#0b0b0d",
+          "#26262a",
+          "#44444b",
+          "#64656e",
+          "#878891",
+          "#acadb4",
+          "#d0d0d6",
+          "#eeeef2"
+        ]
+      },
+      "faint": {
+        "role": "neutral",
+        "displayName": "Faint",
+        "canonical": "#686973",
+        "oklch": "oklch(52.3% 0.016 281)",
+        "tonalRamp": [
+          "#0b0b0e",
+          "#26262b",
+          "#44444b",
+          "#64656f",
+          "#878891",
+          "#acadb5",
+          "#d0d0d6",
+          "#eeeef2"
+        ]
+      },
+      "on-dark-muted": {
+        "role": "neutral",
+        "displayName": "Muted on Ink",
+        "canonical": "#b9bac2",
+        "oklch": "oklch(79.1% 0.011 280)",
+        "tonalRamp": [
+          "#0b0b0d",
+          "#262629",
+          "#44454a",
+          "#65656c",
+          "#88898f",
+          "#adadb3",
+          "#d0d1d5",
+          "#eeeef1"
+        ]
+      },
+      "warning": {
+        "role": "status",
+        "displayName": "Amber",
+        "canonical": "#b54708",
+        "oklch": "oklch(53.9% 0.156 42)",
+        "tonalRamp": [
+          "#1d0200",
+          "#471300",
+          "#752900",
+          "#a7420a",
+          "#cc6a40",
+          "#e79777",
+          "#fec1a8",
+          "#ffe3d1"
+        ]
+      },
+      "warning-wash": {
+        "role": "status",
+        "displayName": "Amber Wash",
+        "canonical": "#fef0c7",
+        "oklch": "oklch(95.6% 0.055 91)",
+        "tonalRamp": [
+          "#0e0b03",
+          "#2c2615",
+          "#4d442b",
+          "#716543",
+          "#948968",
+          "#b7ae93",
+          "#d7d1bd",
+          "#f3eee0"
+        ]
+      },
+      "danger": {
+        "role": "status",
+        "displayName": "Alarm Red",
+        "canonical": "#b42318",
+        "oklch": "oklch(50.0% 0.182 29)",
+        "tonalRamp": [
+          "#200000",
+          "#4c0704",
+          "#7e1b12",
+          "#b32f23",
+          "#d85d4d",
+          "#f28e7f",
+          "#ffbbae",
+          "#ffdfd5"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Opening headline and the contact close headline; one per view."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles, centred over a lead by default."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Feature-row titles beside a stage."
+      },
+      "title-sm": {
+        "displayName": "Title Small",
+        "purpose": "Card, step and plan names."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Paragraph under a headline, Graphite, about 600px wide."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Descriptions and answers in Graphite."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Form labels and small bold card headers."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Pill button text."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Chips, status lines, timestamps, hints."
+      }
+    },
+    "shadows": [
+      {
+        "name": "float",
+        "value": "0 1px 2px rgb(15 15 16 / 0.06), 0 16px 40px -12px rgb(15 15 16 / 0.18)",
+        "purpose": "White cards resting inside a stage."
+      },
+      {
+        "name": "lift",
+        "value": "0 2px 4px rgb(15 15 16 / 0.06), 0 28px 60px -18px rgb(15 15 16 / 0.28)",
+        "purpose": "Cards overlapping a stage edge or photo; the featured plan."
+      },
+      {
+        "name": "bubble",
+        "value": "0 1px 2px rgb(15 15 16 / .06), 0 4px 14px -6px rgb(15 15 16 / .12)",
+        "purpose": "Assistant bubbles on grey."
+      },
+      {
+        "name": "nav-scrolled",
+        "value": "0 1px 0 #e4e5e8",
+        "purpose": "Hairline under the sticky nav once the page scrolls."
+      },
+      {
+        "name": "focus-halo",
+        "value": "0 0 0 4px rgb(31 200 176 / .35)",
+        "purpose": "Field focus halo."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-soft",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "Default easing for presses, reveals, accordion icon and the demo pop."
+      },
+      {
+        "name": "duration-state",
+        "value": "0.15s-0.18s",
+        "purpose": "Colour and border transitions on buttons, fields, links."
+      },
+      {
+        "name": "duration-reveal",
+        "value": "0.25s-0.45s",
+        "purpose": "Accordion icon rotation, demo confirmation fade, blur and height."
+      },
+      {
+        "name": "press",
+        "value": "transform: scale(.98)",
+        "purpose": "Button active state."
+      },
+      {
+        "name": "demo-pop",
+        "value": "scale .96 -> 1.03 -> 1 over 0.5s",
+        "purpose": "Booking card confirms; removed under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "xs-nav-guard",
+        "value": "360px"
+      },
+      {
+        "name": "logo-step",
+        "value": "400px"
+      },
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "frame",
+        "value": "1440px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Teal pill with ink text; the main call to action.",
+      "html": "<button class=\"ds-btn ds-btn-primary\">Contact us</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 28px;border-radius:999px;font-family:var(--font-body);font-size:17px;line-height:1.2;font-weight:650;cursor:pointer;border:1.5px solid transparent;transition:background-color .18s,border-color .18s,transform .18s cubic-bezier(.16,1,.3,1);} .ds-btn:active{transform:scale(.98);} .ds-btn:focus-visible{outline:2px solid var(--color-accent-ink);outline-offset:3px;} .ds-btn-primary{background:var(--color-accent);color:var(--color-ink);} .ds-btn-primary:hover{background:var(--color-accent-hover);}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Paper pill with a 1.5px ink outline; pairs with the primary.",
+      "html": "<button class=\"ds-btn-secondary\">See how it works</button>",
+      "css": ".ds-btn-secondary{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 28px;border-radius:999px;font-family:var(--font-body);font-size:17px;line-height:1.2;font-weight:650;cursor:pointer;background:var(--color-paper);color:var(--color-ink);border:1.5px solid var(--color-ink);transition:background-color .18s,transform .18s cubic-bezier(.16,1,.3,1);} .ds-btn-secondary:hover{background:var(--color-stage);} .ds-btn-secondary:active{transform:scale(.98);} .ds-btn-secondary:focus-visible{outline:2px solid var(--color-accent-ink);outline-offset:3px;}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Rounded field with a soft teal focus halo.",
+      "html": "<label class=\"ds-label\" for=\"ds-email\">Email</label><input id=\"ds-email\" class=\"ds-field\" placeholder=\"you@yourbusiness.com\" />",
+      "css": ".ds-label{display:block;margin-bottom:6px;font-family:var(--font-body);font-size:15px;font-weight:700;line-height:1.3;color:var(--color-ink);} .ds-field{width:100%;height:48px;border-radius:var(--radius-control);border:1.5px solid var(--color-border-strong);background:var(--color-paper);padding:0 16px;font-family:var(--font-body);font-size:16px;color:var(--color-ink);transition:border-color .15s,box-shadow .15s;} .ds-field::placeholder{color:var(--color-faint);} .ds-field:hover{border-color:var(--color-graphite);} .ds-field:focus-visible{outline:none;border-color:var(--color-ink);box-shadow:0 0 0 4px rgb(31 200 176 / .35);}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Sticky white bar; pill links fill grey on hover; compact teal Contact pill.",
+      "html": "<header class=\"ds-nav\"><strong class=\"ds-wordmark\">WhitelabelPRESS</strong><nav class=\"ds-nav-links\"><a href=\"#\">Features</a><a href=\"#\">How it works</a><a href=\"#\">Pricing</a><a href=\"#\">FAQ</a></nav><a class=\"ds-nav-cta\" href=\"#\">Contact</a></header>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px;padding:0 24px;background:rgb(255 255 255 / .95);backdrop-filter:blur(8px);box-shadow:0 1px 0 var(--color-rule);font-family:var(--font-body);} .ds-wordmark{font-size:20px;font-weight:800;letter-spacing:-0.03em;color:var(--color-ink);} .ds-nav-links{display:flex;gap:4px;} .ds-nav-links a{padding:8px 16px;border-radius:999px;font-size:16px;font-weight:600;line-height:1.2;color:var(--color-ink);text-decoration:none;transition:background-color .15s;} .ds-nav-links a:hover{background:var(--color-stage);} .ds-nav-links a:focus-visible,.ds-nav-cta:focus-visible{outline:2px solid var(--color-accent-ink);outline-offset:3px;} .ds-nav-cta{display:inline-flex;align-items:center;min-height:44px;padding:8px 24px;border-radius:999px;background:var(--color-accent);color:var(--color-ink);font-size:16px;font-weight:650;text-decoration:none;} .ds-nav-cta:hover{background:var(--color-accent-hover);}"
+    },
+    {
+      "name": "Status Chips",
+      "kind": "chip",
+      "refersTo": "chip-status",
+      "description": "Pill status chips: booked (teal wash), needs a person (amber), answered (grey).",
+      "html": "<span class=\"ds-chip ds-chip-booked\">Booked</span> <span class=\"ds-chip ds-chip-warn\">Needs Sam</span> <span class=\"ds-chip ds-chip-neutral\">Answered</span>",
+      "css": ".ds-chip{display:inline-block;border-radius:999px;padding:4px 10px;font-family:var(--font-body);font-size:12px;font-weight:700;line-height:1.3;} .ds-chip-booked{background:var(--color-accent-wash);color:var(--color-accent-ink);} .ds-chip-warn{background:var(--color-warning-wash);color:var(--color-warning);} .ds-chip-neutral{background:var(--color-stage);color:var(--color-graphite);}"
+    },
+    {
+      "name": "Time Slot",
+      "kind": "chip",
+      "refersTo": "time-slot",
+      "description": "Pressable pill in a chat; selected fills teal with ink text.",
+      "html": "<button class=\"ds-slot\" aria-pressed=\"true\">9:30</button> <button class=\"ds-slot\" aria-pressed=\"false\">11:00</button>",
+      "css": ".ds-slot{min-height:40px;padding:6px 16px;border-radius:999px;border:1.5px solid var(--color-ink);background:var(--color-paper);color:var(--color-ink);font-family:var(--font-body);font-size:14px;font-weight:700;line-height:1.3;cursor:pointer;transition:background-color .15s,border-color .15s;} .ds-slot:hover{background:var(--color-accent-wash);} .ds-slot[aria-pressed=true]{background:var(--color-accent);border-color:var(--color-accent);} .ds-slot:focus-visible{outline:2px solid var(--color-accent-ink);outline-offset:3px;}"
+    },
+    {
+      "name": "Chat Thread on Stage",
+      "kind": "custom",
+      "refersTo": "bubble-assistant",
+      "description": "Signature: ink customer bubbles and white assistant bubbles with 6px tail corners on a grey stage.",
+      "html": "<div class=\"ds-stage\"><div class=\"ds-row ds-right\"><div class=\"ds-bubble ds-bubble-customer\">How much is a haircut?</div></div><div class=\"ds-row\"><div class=\"ds-bubble ds-bubble-assistant\">A haircut is $38 and takes about 30 minutes. Want me to find you a time?</div></div><p class=\"ds-confirm\">Booked with Sam, Saturday 9:30.</p></div>",
+      "css": ".ds-stage{display:flex;flex-direction:column;gap:10px;padding:40px;background:var(--color-stage);border-radius:var(--radius-stage);font-family:var(--font-body);} .ds-row{display:flex;} .ds-right{justify-content:flex-end;} .ds-bubble{max-width:320px;border-radius:var(--radius-ui);padding:11px 16px;font-size:15px;line-height:1.45;} .ds-bubble-customer{background:var(--color-ink);color:#fff;border-bottom-right-radius:6px;} .ds-bubble-assistant{background:var(--color-paper);color:var(--color-ink);border-bottom-left-radius:6px;box-shadow:0 1px 2px rgb(15 15 16 / .06),0 4px 14px -6px rgb(15 15 16 / .12);} .ds-confirm{margin:0;border-radius:14px;background:var(--color-accent-wash);color:var(--color-accent-ink);padding:8px 12px;font-size:13px;font-weight:600;line-height:1.4;}"
+    },
+    {
+      "name": "Floating Booking Card",
+      "kind": "card",
+      "refersTo": "card-float",
+      "description": "White card lifted off a stage; teal date chip with ink text.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-date\"><span>Sat</span><b>14</b></div><div class=\"ds-card-text\"><span class=\"ds-card-status\">New booking</span><strong>Haircut + beard trim</strong><span class=\"ds-card-sub\">9:30 with Sam, booked by AI</span></div></div>",
+      "css": ".ds-card{display:flex;align-items:center;gap:14px;max-width:300px;padding:14px 16px 14px 14px;border-radius:20px;background:var(--color-paper);box-shadow:var(--shadow-lift);font-family:var(--font-body);} .ds-date{display:flex;flex-direction:column;align-items:center;justify-content:center;width:52px;height:56px;border-radius:14px;background:var(--color-accent);color:var(--color-ink);} .ds-date span{font-size:12px;font-weight:700;} .ds-date b{font-size:24px;font-weight:800;line-height:1;} .ds-card-text{display:flex;flex-direction:column;gap:2px;} .ds-card-status{font-size:12px;font-weight:700;color:var(--color-accent-ink);} .ds-card-text strong{font-size:15px;color:var(--color-ink);} .ds-card-sub{font-size:13px;color:var(--color-graphite);}"
+    },
+    {
+      "name": "Ink Panel",
+      "kind": "card",
+      "refersTo": "panel-ink",
+      "description": "Closing commitment panel: ink ground, white display type, teal numbered markers.",
+      "html": "<section class=\"ds-ink\"><h2>Let it answer the next message.</h2><ol><li><span>1</span>We reply to you by email.</li><li><span>2</span>A short call to set it up.</li></ol><button class=\"ds-ink-btn\">Send message</button></section>",
+      "css": ".ds-ink{background:var(--color-ink);color:#fff;border-radius:var(--radius-stage);padding:48px;font-family:var(--font-body);} .ds-ink h2{margin:0 0 20px;font-size:48px;font-weight:800;line-height:1;letter-spacing:-0.04em;} .ds-ink ol{list-style:none;padding:0;margin:0 0 24px;display:flex;flex-direction:column;gap:12px;} .ds-ink li{display:flex;align-items:center;gap:16px;font-size:17px;} .ds-ink li span{display:grid;place-items:center;width:36px;height:36px;border-radius:999px;background:var(--color-accent);color:var(--color-ink);font-weight:800;} .ds-ink-btn{min-height:52px;padding:14px 28px;border-radius:999px;border:0;background:var(--color-accent);color:var(--color-ink);font-size:17px;font-weight:650;cursor:pointer;} .ds-ink-btn:hover{background:var(--color-accent-hover);} .ds-ink-btn:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Open Counter",
+    "overview": "(The name was derived from the direction thesis, \"the desk is open: a calm white counter where the conversation itself is the hero\". The user did not choose a name.)\n\nThe system is a white counter with a conversation laid out on it. The page ground is white paper, type is near-black ink, and product moments sit on soft grey stages with big rounded corners. White chat cards float on those stages under quiet ambient shadows. One bright teal is the only colour, and it marks the actions and confirmations a visitor should notice: the primary pill, a booked date, a \"replies instantly\" dot. The inspiration, chosen by the user, is chatbot.com's approach: a friendly geometric sans, rounded shapes everywhere, and a mostly black, white and grey palette with one bright accent.\n\nThe feel is warm and approachable without being cute. Figtree carries everything. Display type is set heavy (800) and tight, so headlines feel confident while the round letterforms keep them friendly. Density is relaxed: generous section padding, short line lengths, and a lot of white around each stage so the chat stays the subject. Ink is used in two ways. It is the colour of text, and it fills full panels at the moments of commitment: the contact close and the featured plan.\n\nDepth is gentle. Flat grey stages hold white cards that lift slightly off them. Nothing is glossy, gradient-filled or loud; the teal and the conversation do the work.",
+    "keyCharacteristics": [
+      "White paper ground, near-black ink text, soft grey stages: mono plus one accent.",
+      "One bright teal accent; teal fills always carry ink text.",
+      "Figtree only; 800-weight display with negative tracking; sentence case throughout.",
+      "Pills for every action and chip; containers rounded from 14px up to 32px by size.",
+      "White cards float on grey stages under soft, ink-tinted ambient shadows.",
+      "Chat bubbles are the signature: ink for the customer, white for the assistant, each with a tight tail corner."
+    ],
+    "rules": [
+      {
+        "name": "The One Teal Rule",
+        "body": "Teal is the only chromatic accent. Bright teal works as a fill, dot, stroke, underline or focus halo on any surface, and its fills always carry ink text. As readable text on a light surface it is always Deep Counter Teal.",
+        "section": "colors"
+      },
+      {
+        "name": "The Quiet Counter Rule",
+        "body": "Paper, ink and greys carry the page. Teal never floods a section ground; it stays on pills, chips, dots and markers so it keeps its signal.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Family Rule",
+        "body": "Figtree is the only typeface. Hierarchy comes from weight (800 against 400) and tracking, never from a second face.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence Case Rule",
+        "body": "Every heading, label, chip and button is in sentence case at normal tracking. The system has no uppercase tracked labels.",
+        "section": "typography"
+      },
+      {
+        "name": "The Float-on-Stage Rule",
+        "body": "Shadows belong to white objects placed on a grey stage or overlapping it. Stages, sections and ink panels themselves stay flat.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Pill Rule",
+        "body": "If it can be pressed, it is a pill.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Tail Corner Rule",
+        "body": "A single 6px corner on an otherwise rounded shape means \"someone said this\". Keep it for speech: bubbles and quotes.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "**Do** put product moments on a Stage Grey stage with 32px corners, with white cards floating on it.",
+      "**Do** keep bright teal for fills with ink text, and use Deep Counter Teal (#0f766e) whenever teal must be read as text on a light surface.",
+      "**Do** make every action a pill, 52px tall at full size, with a primary teal pill and a secondary ink-outline pill as the standard pair.",
+      "**Do** set headlines in Figtree 800 with negative tracking (-0.02em to -0.035em) and body in Figtree 400 with Graphite for secondary text.",
+      "**Do** use the Float and Lift shadows only on white objects resting on or overlapping a stage.",
+      "**Do** ease motion with `cubic-bezier(.16,1,.3,1)` over 0.15–0.45s, and give every animation a reduced-motion fallback.",
+      "**Do** label sample content honestly with a neutral \"Sample\" chip or caption."
+    ],
+    "donts": [
+      "**Don't** put white text on a teal fill, or use bright teal (#1fc8b0) as text on white.",
+      "**Don't** add a second accent colour or flood a section ground with teal.",
+      "**Don't** introduce a second typeface or uppercase tracked labels above headings.",
+      "**Don't** give buttons, cards, fields or standalone containers square corners (a photo may sit flush on a stage edge), and don't use hard-edged offset shadows; shadows stay soft, ambient and ink-tinted.",
+      "**Don't** use the 6px tail corner on anything that is not speech.",
+      "**Don't** add gradients or glossy fills to grounds, stages or buttons."
+    ]
+  }
+}
