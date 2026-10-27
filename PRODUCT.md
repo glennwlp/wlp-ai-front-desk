@@ -38,7 +38,7 @@ One continuous conversation instead of separate tools: the same assistant answer
 
 ## Brand Commitments
 
-- Name: "AI Front Desk", by WhitelabelPRESS. Contact address: hello@whitelabelpress.com.
+- Name: "AI Front Desk", by WhitelabelPRESS. Contact address: glenn@whitelabelpress.com.
 - Voice (from current copy): plain, concrete, owner-to-owner. Short sentences, specific examples (a haircut is $38, Sam has 9:30), no AI hype or jargon.
 
 ## Evidence on Hand
