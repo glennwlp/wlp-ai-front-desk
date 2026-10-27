@@ -1,12 +1,12 @@
-// Unit tests for POST /api/signup. Run: node --test worker/
+// Unit tests for POST /api/contact. Run: node --test worker/
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import worker from './index.js';
 
 const ENV = { TURNSTILE_SECRET: 'ts-secret', NOTION_TOKEN: 'ntn-secret', NOTION_DATABASE_ID: 'db-id', APPS_SCRIPT_URL: 'https://script.example/exec', FORM_SECRET: 'form-secret', ASSETS: { fetch: async () => new Response('asset') } };
 let n = 0;
-const req = (body, { method = 'POST', ip } = {}) => new Request('https://frontdesk.whitelabelpress.com/api/signup', { method, headers: { 'content-type': 'application/json', 'cf-connecting-ip': ip || `203.0.113.${++n % 250}-${n}` }, body: method === 'POST' ? (typeof body === 'string' ? body : JSON.stringify(body)) : undefined });
-const good = { email: 'Jane@Example.com', 'cf-turnstile-response': 'tok', notes: '/?utm_source=x' };
+const req = (body, { method = 'POST', ip } = {}) => new Request('https://frontdesk.whitelabelpress.com/api/contact', { method, headers: { 'content-type': 'application/json', 'cf-connecting-ip': ip || `203.0.113.${++n % 250}-${n}` }, body: method === 'POST' ? (typeof body === 'string' ? body : JSON.stringify(body)) : undefined });
+const good = { name: 'Jane Cruz', email: 'Jane@Example.com', business: 'Cruz Dental', message: 'Hi!\nCan you set this up for my clinic?', 'cf-turnstile-response': 'tok', notes: '/?utm_source=x' };
 
 function mockFetch({ turnstile = true, notion = 200, apps = { ok: true }, appsStatus = 200 } = {}) {
   const calls = [];
@@ -32,13 +32,36 @@ test('success: calls turnstile, notion and apps script with the right payloads',
   assert.equal(nt.init.headers.authorization, 'Bearer ntn-secret');
   const nb = JSON.parse(nt.init.body);
   assert.deepEqual(nb.parent, { database_id: 'db-id' });
-  assert.equal(nb.properties.Email.title[0].text.content, 'Jane@Example.com');
+  assert.deepEqual(Object.keys(nb.properties).sort(), ['Business', 'Email', 'Message', 'Name', 'Notes', 'Source', 'Status']);
+  assert.equal(nb.properties.Name.title[0].text.content, 'Jane Cruz');
+  assert.deepEqual(nb.properties.Email, { email: 'Jane@Example.com' });
+  assert.equal(nb.properties.Business.rich_text[0].text.content, 'Cruz Dental');
+  assert.equal(nb.properties.Message.rich_text[0].text.content, 'Hi!\nCan you set this up for my clinic?');
   assert.equal(nb.properties.Source.select.name, 'frontdesk.whitelabelpress.com');
   assert.equal(nb.properties.Status.select.name, 'New');
   assert.equal(nb.properties.Notes.rich_text[0].text.content, '/?utm_source=x');
   const ap = JSON.parse(calls.find((c) => c.url.includes('script.example')).init.body);
-  assert.equal(ap.secret, 'form-secret'); assert.equal(ap.fields.email, 'Jane@Example.com'); assert.equal(ap.fields.source, 'frontdesk.whitelabelpress.com'); assert.ok(!isNaN(Date.parse(ap.fields.submitted)));
+  assert.equal(ap.secret, 'form-secret');
+  assert.deepEqual({ ...ap.fields, submitted: undefined }, { name: 'Jane Cruz', email: 'Jane@Example.com', business: 'Cruz Dental', message: 'Hi!\nCan you set this up for my clinic?', source: 'frontdesk.whitelabelpress.com', submitted: undefined, notes: '/?utm_source=x' });
+  assert.ok(!isNaN(Date.parse(ap.fields.submitted)));
   const ts = calls.find((c) => c.url.includes('turnstile')).init.body; assert.equal(ts.get('secret'), 'ts-secret'); assert.equal(ts.get('response'), 'tok');
+});
+test('business is optional and omitted from Notion/email when empty', async () => {
+  const calls = mockFetch();
+  const res = await call(req({ ...good, business: '   ' })); assert.equal(res.status, 200);
+  assert.ok(!('Business' in JSON.parse(calls.find((c) => c.url.includes('notion.com')).init.body).properties));
+  assert.ok(!('business' in JSON.parse(calls.find((c) => c.url.includes('script.example')).init.body).fields));
+});
+test('validates name, business and message (required / max length)', async () => {
+  const calls = mockFetch();
+  const cases = [
+    [{ name: '' }, 'name'], [{ name: '   ' }, 'name'], [{ name: 5 }, 'name'], [{ name: 'x'.repeat(101) }, 'name'],
+    [{ business: 'x'.repeat(151) }, 'business'],
+    [{ message: '' }, 'message'], [{ message: '  \n ' }, 'message'], [{ message: null }, 'message'], [{ message: 'x'.repeat(2001) }, 'message'],
+  ];
+  for (const [patch, field] of cases) { const res = await call(req({ ...good, ...patch })); assert.equal(res.status, 400, JSON.stringify(patch).slice(0, 40)); assert.equal((await res.json()).field, field); }
+  assert.equal((await call(req({ ...good, message: 'x'.repeat(2000) }))).status, 200);
+  assert.equal(calls.filter((c) => c.url.includes('notion.com')).length, 1);
 });
 test('honeypot returns ok without calling anything', async () => {
   const calls = mockFetch();
@@ -54,7 +77,7 @@ test('rejects bad emails', async () => {
 });
 test('rejects missing / bad turnstile', async () => {
   mockFetch();
-  assert.equal((await call(req({ email: 'a@b.co' }))).status, 403);
+  { const { 'cf-turnstile-response': _t, ...noTok } = good; assert.equal((await call(req(noTok))).status, 403); }
   mockFetch({ turnstile: false });
   assert.equal((await call(req(good))).status, 403);
 });

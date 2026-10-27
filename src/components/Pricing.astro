@@ -4,12 +4,12 @@ const plans = [
   {
     name: 'Starter', price: '$XX', desc: 'For owners who want every question answered, day and night.',
     items: ['Website chat widget', 'Trained on your FAQs and documents', 'Handoff to you by email', 'Conversation history'],
-    cta: 'Get early access', href: '#early-access', variant: 'secondary',
+    cta: 'Contact us', href: '#contact', variant: 'secondary',
   },
   {
     name: 'Growth', price: '$XX', badge: 'Includes booking', featured: true, desc: 'For businesses that take bookings every day.',
     items: ['Everything in Starter', 'Booking with calendar sync', 'Reminders before every appointment', 'Live handoff to your team', 'Messenger, WhatsApp, Instagram when available'],
-    cta: 'Get early access', href: '#early-access', variant: 'primary',
+    cta: 'Contact us', href: '#contact', variant: 'primary',
   },
   {
     name: 'Custom', price: 'Coming soon', compact: true, desc: 'For several locations, or agencies setting it up for clients.',
@@ -20,7 +20,7 @@ const plans = [
 ---
 <section id="pricing" class="bg-wash">
   <div class="wrap flex flex-col gap-10 pb-16 pt-16 md:gap-12 lg:pb-[120px] lg:pt-28">
-    <SectionHeader title="Pricing">Prices will be confirmed at launch. Businesses that join early access keep their launch price.</SectionHeader>
+    <SectionHeader title="Pricing">Prices will be confirmed at launch. Early customers keep their launch price.</SectionHeader>
     <div class="grid overflow-hidden rounded-ui border border-border-table bg-white lg:grid-cols-3">
       {plans.map((p, i) => (
         <div class:list={['relative flex flex-col gap-5 px-6 py-8 sm:px-8 lg:py-9', i > 0 && 'border-t border-rule lg:border-l lg:border-t-0', p.featured && 'bg-paper-tint']}>

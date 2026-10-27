@@ -1,0 +1,150 @@
+---
+// Public Turnstile sitekey, injected at build time: PUBLIC_TURNSTILE_SITEKEY=0x4AAAA... npm run build
+const sitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY ?? '';
+const next = ['We reply to you by email.', 'A short call to set it up on your website.', 'You keep your launch price.'];
+---
+<section id="contact" class="on-teal bg-accent">
+  <div class="wrap py-16 lg:py-32">
+    <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_460px] lg:gap-16">
+      <div class="flex max-w-[700px] flex-col gap-5">
+        <h2 class="font-display text-[clamp(44px,6.11vw,88px)] font-bold leading-[0.95] tracking-[-2px] text-white">Let it answer the next message.</h2>
+        <p class="max-w-[520px] text-[18px] leading-[1.55] text-on-accent-muted">Tell us about your business. We’ll help you set it up on your website, and early customers keep their launch price.</p>
+      </div>
+      <div class="flex flex-col gap-5 rounded-panel bg-white p-6 sm:p-9">
+        <h3 class="font-display text-[clamp(34px,3.2vw,46px)] font-bold leading-[1.02] tracking-[-0.8px] text-ink">Contact us</h3>
+        <form id="contact-form" class="flex flex-col gap-4" novalidate data-sitekey={sitekey}>
+          <div class="flex flex-col gap-[6px]">
+            <label for="name" class="text-[15px] font-semibold leading-[1.3] text-ink">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" maxlength="100" required aria-required="true" aria-describedby="name-err" class="h-12 w-full rounded-control border border-border-strong bg-white px-4 text-[16px] leading-[1.3] text-ink placeholder:text-faint focus-visible:border-accent" />
+            <p id="name-err" class="hidden px-0 text-[14px] font-semibold leading-[1.4] text-danger" role="alert"></p>
+          </div>
+          <div class="flex flex-col gap-[6px]">
+            <label for="email" class="text-[15px] font-semibold leading-[1.3] text-ink">Email</label>
+            <input id="email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="254" placeholder="you@yourbusiness.com" required aria-required="true" aria-describedby="email-err" class="h-12 w-full rounded-control border border-border-strong bg-white px-4 text-[16px] leading-[1.3] text-ink placeholder:text-faint focus-visible:border-accent" />
+            <p id="email-err" class="hidden px-0 text-[14px] font-semibold leading-[1.4] text-danger" role="alert"></p>
+          </div>
+          <div class="flex flex-col gap-[6px]">
+            <label for="business" class="text-[15px] font-semibold leading-[1.3] text-ink">Business name <span class="font-normal text-faint">(optional)</span></label>
+            <input id="business" name="business" type="text" autocomplete="organization" maxlength="150" aria-describedby="business-err" class="h-12 w-full rounded-control border border-border-strong bg-white px-4 text-[16px] leading-[1.3] text-ink placeholder:text-faint focus-visible:border-accent" />
+            <p id="business-err" class="hidden px-0 text-[14px] font-semibold leading-[1.4] text-danger" role="alert"></p>
+          </div>
+          <div class="flex flex-col gap-[6px]">
+            <label for="message" class="text-[15px] font-semibold leading-[1.3] text-ink">Message</label>
+            <textarea id="message" name="message" rows="5" maxlength="2000" required aria-required="true" aria-describedby="message-hint message-err" class="min-h-[132px] w-full resize-y rounded-control border border-border-strong bg-white px-4 py-3 text-[16px] leading-[1.45] text-ink placeholder:text-faint focus-visible:border-accent"></textarea>
+            <p id="message-hint" class="text-[13px] leading-[1.4] text-faint">How can we help? Up to 2000 characters.</p>
+            <p id="message-err" class="hidden px-0 text-[14px] font-semibold leading-[1.4] text-danger" role="alert"></p>
+          </div>
+          <div class="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+            <label for="company_url">Leave this field empty</label>
+            <input id="company_url" name="company_url" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+          {sitekey && <div id="contact-turnstile" class="min-h-[65px]"></div>}
+          <button id="contact-submit" type="submit" class="btn btn-primary w-full disabled:cursor-wait disabled:opacity-70">Send message</button>
+          <p id="contact-err" class="hidden px-0 py-1 text-[14px] font-semibold leading-[1.4] text-danger" role="alert"></p>
+          <p id="contact-ok" class="hidden rounded-control bg-accent-wash px-3 py-2 text-[14px] font-semibold leading-[1.4] text-accent-ink" role="status"></p>
+        </form>
+        <p class="text-[13px] leading-[1.4] text-faint">We’ll only use your details to reply to your message.</p>
+        <div>
+          <p class="text-[15px] font-semibold leading-[1.3] text-ink">What happens next</p>
+          <ol class="mt-[1px]">
+            {next.map((t, i) => (
+              <li class="mt-[0px] flex items-center gap-[14px] border-t border-rule py-3 first:mt-3">
+                <span class="w-4 shrink-0 font-display text-[20px] font-bold leading-none text-accent">{i + 1}</span>
+                <span class="text-[15px] leading-[1.45] text-ink">{t}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{sitekey && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>}
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const $ = (id: string) => document.getElementById(id) as HTMLInputElement;
+  const fields = ['name', 'email', 'business', 'message'];
+  const btn = document.getElementById('contact-submit') as HTMLButtonElement;
+  const okMsg = document.getElementById('contact-ok')!;
+  const errMsg = document.getElementById('contact-err')!;
+  const sitekey = form.dataset.sitekey || '';
+  const label = btn.textContent || 'Send message';
+  let widgetId: string | undefined;
+  let token = '';
+
+  // Turnstile (managed mode, explicit render). The script loads async, so wait for it.
+  if (sitekey) {
+    let tries = 0;
+    const t = setInterval(() => {
+      const ts = (window as any).turnstile;
+      if (ts) {
+        clearInterval(t);
+        // 'flexible' needs >= 300px; on narrower cards use the compact widget so nothing overflows.
+        const host = document.getElementById('contact-turnstile')!;
+        widgetId = ts.render('#contact-turnstile', {
+          sitekey, theme: 'light', size: host.clientWidth >= 300 ? 'flexible' : 'compact',
+          callback: (v: string) => { token = v; },
+          'expired-callback': () => { token = ''; },
+          'error-callback': () => { token = ''; },
+        });
+      } else if (++tries > 100) clearInterval(t);
+    }, 100);
+  }
+
+  const resetWidget = () => { token = ''; if (widgetId !== undefined) (window as any).turnstile?.reset(widgetId); };
+  const setFieldError = (id: string, msg: string) => {
+    const el = document.getElementById(id + '-err')!;
+    el.textContent = msg;
+    el.classList.toggle('hidden', !msg);
+    $(id).setAttribute('aria-invalid', String(!!msg));
+    $(id).classList.toggle('!border-danger', !!msg);
+  };
+  const clearErrors = () => { fields.forEach((f) => setFieldError(f, '')); errMsg.classList.add('hidden'); okMsg.classList.add('hidden'); };
+  const showError = (msg: string) => { okMsg.classList.add('hidden'); errMsg.textContent = msg; errMsg.classList.remove('hidden'); };
+  fields.forEach((f) => $(f).addEventListener('input', () => { if (!document.getElementById(f + '-err')!.classList.contains('hidden')) setFieldError(f, ''); }));
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (btn.disabled) return;
+    clearErrors();
+    const v = { name: $('name').value.trim(), email: $('email').value.trim(), business: $('business').value.trim(), message: $('message').value.trim() };
+    const errs: Record<string, string> = {};
+    if (!v.name) errs.name = 'Please enter your name.';
+    if (!v.email) errs.email = 'Please enter your email address.';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email) || v.email.length > 254) errs.email = 'Enter a valid email address, like you@yourbusiness.com.';
+    if (!v.message) errs.message = 'Please write a message.';
+    const bad = fields.filter((f) => errs[f]);
+    bad.forEach((f) => setFieldError(f, errs[f]));
+    if (bad.length) { $(bad[0]).focus(); return; }
+    if (!sitekey) return showError('The contact form is not available right now. Please try again later.');
+    if (!token) return showError('Please complete the security check, then press the button again.');
+
+    btn.disabled = true;
+    btn.setAttribute('aria-busy', 'true');
+    btn.textContent = 'Sending…';
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ ...v, company_url: $('company_url').value, 'cf-turnstile-response': token, notes: (location.pathname + location.search).slice(0, 300) }),
+      });
+      const out = await res.json().catch(() => null);
+      if (res.ok && out && out.ok) {
+        okMsg.textContent = 'Thanks, your message is on its way. We’ll reply by email.';
+        okMsg.classList.remove('hidden');
+        form.reset();
+      } else if (out && out.field && fields.includes(out.field)) {
+        setFieldError(out.field, out.error); $(out.field).focus();
+      } else {
+        showError((out && out.error) || 'Something went wrong. Please try again.');
+      }
+    } catch {
+      showError('Could not reach the server. Check your connection and try again.');
+    } finally {
+      resetWidget(); // tokens are single-use
+      btn.disabled = false;
+      btn.removeAttribute('aria-busy');
+      btn.textContent = label;
+    }
+  });
+</script>
