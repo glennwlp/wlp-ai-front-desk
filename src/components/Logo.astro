@@ -3,7 +3,7 @@ interface Props { tone?: 'light' | 'dark'; size?: 'nav' | 'footer' }
 const { tone = 'light', size = 'nav' } = Astro.props;
 const dark = tone === 'dark';
 ---
-<a href="/" class:list={['flex min-h-11 shrink-0 gap-[10px] whitespace-nowrap', size === 'nav' ? 'items-center' : 'items-end pb-[10px]']} aria-label="WhitelabelPRESS AI Front Desk, home">
-  <span class:list={['font-bold', size === 'nav' ? 'text-[18px] leading-[1.2] tracking-[-0.4px] min-[400px]:text-[20px]' : 'text-[18px] leading-[1.2] tracking-[-0.3px]', dark ? 'text-white' : 'text-ink']}>WhitelabelPRESS</span>
-  <span class:list={['whitespace-nowrap pb-[2px] text-[14px] leading-[1.5]', size === 'nav' ? 'hidden font-medium sm:inline' : 'font-normal', dark ? 'text-on-dark-faint' : 'text-graphite']}>AI Front Desk</span>
+<a href="/" class="flex min-h-11 shrink-0 items-center gap-[10px] whitespace-nowrap" aria-label="WhitelabelPRESS AI Front Desk, home">
+  <span class:list={['font-extrabold tracking-[-0.03em]', size === 'nav' ? 'text-[18px] leading-[1.2] min-[400px]:text-[20px]' : 'text-[20px] leading-[1.2]', dark ? 'text-white' : 'text-ink']}>WhitelabelPRESS</span>
+  <span class:list={['whitespace-nowrap rounded-full px-[10px] py-[3px] text-[13px] font-semibold leading-[1.4]', size === 'nav' && 'hidden sm:inline', dark ? 'bg-ink-raised text-on-dark-muted' : 'bg-stage text-graphite']}>AI Front Desk</span>
 </a>

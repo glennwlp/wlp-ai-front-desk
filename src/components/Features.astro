@@ -5,79 +5,87 @@ const files = ['price-list.pdf', 'faq.docx', 'cancellation-policy.pdf', 'opening
 const inbox = [
   ['Jordan P.', 'Can I bring my own beard oil?', 'Needs Sam', 'bg-warning-wash text-warning'],
   ['Priya K.', 'Haircut + beard, Sat 9:30', 'Booked', 'bg-accent-wash text-accent-ink'],
-  ['Tom W.', 'Do you take card?', 'Answered', 'bg-wash text-graphite'],
+  ['Tom W.', 'Do you take card?', 'Answered', 'bg-stage text-graphite'],
 ];
-const row = 'grid gap-6 border-b border-rule py-7 lg:grid-cols-[minmax(0,600px)_minmax(0,440px)] lg:justify-between lg:gap-10';
-const annot = 'order-first flex max-w-[440px] flex-col gap-[10px] lg:order-none';
-const cap = 'text-[20px] font-semibold leading-[1.3] tracking-[-0.2px] text-ink';
-const desc = 'max-w-[420px] text-[16px] leading-[1.6] text-graphite';
+const row = 'grid items-center gap-8 lg:grid-cols-2 lg:gap-16';
+const stage = 'stage flex min-h-[320px] flex-col justify-center gap-[10px] p-5 sm:p-10';
+const cap = 'text-[clamp(26px,2.4vw,34px)] font-extrabold leading-[1.1] tracking-[-0.025em] text-ink';
+const desc = 'max-w-[460px] text-[18px] leading-[1.6] text-graphite';
 ---
 <section id="features" class="bg-white">
-  <div class="wrap flex flex-col gap-10 py-16 md:gap-14 lg:py-[120px]">
+  <div class="wrap py-16 lg:py-28">
     <SectionHeader title="One conversation, start to finish">Booking is one thing it does. Follow a single customer from first question to follow-up, and see what the assistant handles at each step.</SectionHeader>
-
-    <div class="border-t border-ink">
+    <div class="mt-12 flex flex-col gap-16 lg:mt-20 lg:gap-24">
       <!-- Trained on your business -->
       <div class={row}>
-        <div class="flex flex-col gap-[10px]">
-          <p class="text-[13px] font-semibold leading-[1.4] text-graphite">Knowledge</p>
-          <ul class="flex flex-wrap gap-2">
-            {files.map((f) => (
-              <li class="flex items-center gap-2 rounded-control border border-border-strong bg-white px-3 py-2 text-[14px] font-medium leading-[1.3] text-ink">
-                <span class="size-2 rounded-full bg-accent" aria-hidden="true"></span>{f}
-              </li>
-            ))}
-          </ul>
-          <p class="text-[13px] leading-[1.4] text-faint">4 documents, trained 2 minutes ago</p>
+        <div class={stage}>
+          <div class="mx-auto w-full max-w-[400px] rounded-[20px] bg-white p-5 shadow-[var(--shadow-float)]">
+            <p class="text-[14px] font-bold leading-[1.3] text-ink">Knowledge</p>
+            <ul class="mt-3 flex flex-col gap-2">
+              {files.map((f) => (
+                <li class="flex items-center gap-3 rounded-[12px] bg-stage px-3 py-[10px] text-[15px] font-medium leading-[1.3] text-ink">
+                  <svg class="shrink-0 text-accent-ink" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M4 1.75h6.5L14 5.25v11H4z"/><path d="M10.25 1.75v3.75H14"/></svg>{f}
+                </li>
+              ))}
+            </ul>
+            <p class="mt-4 flex items-center gap-2 text-[13px] font-semibold leading-[1.4] text-accent-ink"><span class="size-[7px] rounded-full bg-accent" aria-hidden="true"></span>4 documents, trained 2 minutes ago</p>
+          </div>
         </div>
-        <div class={annot}><h3 class={cap + ' !font-body'}>Trained on your business</h3><p class={desc}>Upload your price list, FAQs, and policies. It answers from what you’ve given it and nothing else.</p></div>
+        <div class="flex flex-col gap-4"><h3 class={cap}>Trained on your business</h3><p class={desc}>Upload your price list, FAQs, and policies. It answers from what you’ve given it and nothing else.</p></div>
       </div>
 
       <!-- One continuous thread: answers, books, reminds -->
       <div class={row}>
-        <div class="flex flex-col gap-[10px]">
-          <Bubble role="customer">How much is a haircut? And do you do beards?</Bubble>
-          <Bubble role="assistant">A haircut is $38. A beard trim is $22, or $55 if you book both together.</Bubble>
-          <Bubble role="customer">Can I get both on Saturday morning?</Bubble>
-          <Bubble role="assistant">Sam has 9:30 or 11:00 on Saturday. Which works?</Bubble>
-          <Bubble role="customer">9:30</Bubble>
-          <Bubble role="assistant">Done. Haircut and beard trim with Sam, Saturday at 9:30.</Bubble>
-          <p class="pt-2 text-[13px] font-medium leading-[1.4] text-faint">Friday, 6:00 PM</p>
-          <Bubble role="assistant">Reminder: you’re with Sam tomorrow at 9:30. Reply C to confirm or R to reschedule.</Bubble>
-          <Bubble role="customer">C</Bubble>
+        <div class:list={[stage, 'lg:order-2']}>
+          <div class="mx-auto flex w-full max-w-[440px] flex-col gap-[10px]">
+            <Bubble role="customer" size="sm">How much is a haircut? And do you do beards?</Bubble>
+            <Bubble role="assistant" size="sm">A haircut is $38. A beard trim is $22, or $55 if you book both together.</Bubble>
+            <Bubble role="customer" size="sm">Can I get both on Saturday morning?</Bubble>
+            <Bubble role="assistant" size="sm">Sam has 9:30 or 11:00 on Saturday. Which works?</Bubble>
+            <Bubble role="customer" size="sm">9:30</Bubble>
+            <Bubble role="assistant" size="sm">Done. Haircut and beard trim with Sam, Saturday at 9:30.</Bubble>
+            <p class="my-1 self-center rounded-full bg-stage-deep px-3 py-1 text-[12px] font-semibold leading-[1.3] text-graphite">Friday, 6:00 PM</p>
+            <Bubble role="assistant" size="sm">Reminder: you’re with Sam tomorrow at 9:30. Reply C to confirm or R to reschedule.</Bubble>
+            <Bubble role="customer" size="sm">C</Bubble>
+          </div>
         </div>
-        <div class="flex max-w-[440px] flex-col gap-6">
-          <div class="flex flex-col gap-[10px]"><h3 class={cap + ' !font-body'}>Answers questions end to end</h3><p class={desc}>Prices, hours, parking, policies. Customers get the full answer straight away, not “someone will get back to you.”</p></div>
-          <div class="flex flex-col gap-[10px]"><h3 class={cap + ' !font-body'}>Books appointments</h3><p class={desc}>The same assistant checks your calendar and books the slot without leaving the chat.</p></div>
-          <div class="flex flex-col gap-[10px]"><h3 class={cap + ' !font-body'}>Sends reminders</h3><p class={desc}>A reminder goes out the day before. Customers confirm or reschedule by replying.</p></div>
+        <div class="flex flex-col gap-8 lg:order-1">
+          <div class="flex flex-col gap-3"><h3 class={cap}>Answers questions end to end</h3><p class={desc}>Prices, hours, parking, policies. Customers get the full answer straight away, not “someone will get back to you.”</p></div>
+          <div class="flex flex-col gap-3"><h3 class={cap}>Books appointments</h3><p class={desc}>The same assistant checks your calendar and books the slot without leaving the chat.</p></div>
+          <div class="flex flex-col gap-3"><h3 class={cap}>Sends reminders</h3><p class={desc}>A reminder goes out the day before. Customers confirm or reschedule by replying.</p></div>
         </div>
       </div>
 
       <!-- Hands off to a human -->
       <div class={row}>
-        <div class="flex flex-col gap-[10px]">
-          <Bubble role="customer">Can I bring my own beard oil? I’m allergic to some.</Bubble>
-          <Bubble role="assistant">That’s a question for Sam. I’ve sent this chat over, and the team usually replies within the hour.</Bubble>
+        <div class={stage}>
+          <div class="mx-auto flex w-full max-w-[440px] flex-col gap-[10px]">
+            <Bubble role="customer" size="sm">Can I bring my own beard oil? I’m allergic to some.</Bubble>
+            <Bubble role="assistant" size="sm">That’s a question for Sam. I’ve sent this chat over, and the team usually replies within the hour.</Bubble>
+            <div class="mt-2 flex items-center gap-3 self-start rounded-full bg-white py-[6px] pl-[6px] pr-4 shadow-[var(--shadow-float)]">
+              <span class="grid size-8 place-items-center rounded-full bg-ink text-[13px] font-extrabold text-white" aria-hidden="true">S</span>
+              <span class="text-[13px] font-semibold leading-[1.3] text-ink">Sent to Sam with the full chat</span>
+            </div>
+          </div>
         </div>
-        <div class={annot}><h3 class={cap + ' !font-body'}>Hands off to a human</h3><p class={desc}>When a question needs a person, it says so and passes the whole conversation to your team.</p></div>
+        <div class="flex flex-col gap-4"><h3 class={cap}>Hands off to a human</h3><p class={desc}>When a question needs a person, it says so and passes the whole conversation to your team.</p></div>
       </div>
 
       <!-- Dashboard -->
-      <div class={row + ' !border-b-0'}>
-        <div>
-          <div class="overflow-hidden rounded-[10px] border border-border-table bg-white" role="table" aria-label="Sample inbox">
+      <div class={row}>
+        <div class:list={[stage, 'lg:order-2']}>
+          <div class="mx-auto w-full max-w-[460px] overflow-hidden rounded-[20px] bg-white shadow-[var(--shadow-float)]" role="table" aria-label="Sample inbox">
             {inbox.map(([name, msg, status, tone], i) => (
-              <div role="row" class:list={['flex items-center gap-4 px-4 py-[14px]', i > 0 && 'border-t border-rule']}>
-                <span role="cell" class="w-[90px] shrink-0 text-[14px] font-semibold leading-[1.3] text-ink">{name}</span>
-                <span role="cell" class="min-w-0 flex-1 text-[14px] leading-[1.3] text-graphite max-sm:basis-0">{msg}</span>
-                <span role="cell" class={`shrink-0 rounded-chip px-2 py-[3px] text-[12px] font-semibold leading-[1.3] ${tone}`}>{status}</span>
+              <div role="row" class:list={['flex items-center gap-3 px-4 py-4 sm:gap-4', i > 0 && 'border-t border-rule']}>
+                <span role="cell" class="w-[78px] shrink-0 text-[14px] font-bold leading-[1.3] text-ink sm:w-[90px]">{name}</span>
+                <span role="cell" class="min-w-0 flex-1 text-[14px] leading-[1.35] text-graphite max-sm:basis-0">{msg}</span>
+                <span role="cell" class={`shrink-0 rounded-chip px-[10px] py-[4px] text-[12px] font-bold leading-[1.3] ${tone}`}>{status}</span>
               </div>
             ))}
           </div>
         </div>
-        <div class={annot}><h3 class={cap + ' !font-body'}>Simple dashboard, starting on your website</h3><p class={desc}>Every conversation, booking, and handoff lands in one inbox. The widget starts on your website, with Messenger, WhatsApp, and Instagram after that.</p></div>
+        <div class="flex flex-col gap-4 lg:order-1"><h3 class={cap}>Simple dashboard, starting on your website</h3><p class={desc}>Every conversation, booking, and handoff lands in one inbox. The widget starts on your website, with Messenger, WhatsApp, and Instagram after that.</p></div>
       </div>
-      <div class="border-t border-ink"></div>
     </div>
   </div>
 </section>

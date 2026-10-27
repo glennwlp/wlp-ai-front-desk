@@ -2,23 +2,23 @@
 import Logo from './Logo.astro';
 const links = [['Features', '#features'], ['How it works', '#how-it-works'], ['Pricing', '#pricing'], ['FAQ', '#faq']];
 ---
-<header id="site-header" class="sticky top-0 z-50 bg-white transition-shadow">
+<header id="site-header" class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm transition-shadow">
   <div class="wrap relative flex h-[72px] items-center justify-between">
     <Logo />
-    <div class="flex shrink-0 items-center gap-2 sm:gap-3 lg:gap-10">
-      <nav class="hidden items-center gap-10 lg:flex" aria-label="Main">
-        {links.map(([l, h]) => <a href={h} class="text-[15px] font-medium leading-[1.2] text-ink hover:text-accent">{l}</a>)}
+    <div class="flex shrink-0 items-center gap-2 sm:gap-3 lg:gap-8">
+      <nav class="hidden items-center gap-1 lg:flex" aria-label="Main">
+        {links.map(([l, h]) => <a href={h} class="rounded-full px-4 py-2 text-[16px] font-semibold leading-[1.2] text-ink transition-colors hover:bg-stage">{l}</a>)}
       </nav>
-      <a href="#contact" class="btn btn-dark !min-h-11 !px-3 !py-2 !text-[14px] max-[359px]:hidden min-[400px]:!px-3.5 min-[400px]:!text-[15px] sm:!px-6 sm:!py-[14px] sm:!text-[16px]">Contact</a>
-      <button id="menu-btn" type="button" class="grid size-11 place-items-center rounded-control border border-border-strong lg:hidden" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path id="ic-open" d="M3 6h14M3 10h14M3 14h14"/><path id="ic-close" class="hidden" d="M5 5l10 10M15 5L5 15"/></svg>
+      <a href="#contact" class="btn btn-primary !min-h-11 !px-4 !py-2 !text-[15px] max-[359px]:hidden sm:!px-6 sm:!text-[16px]">Contact</a>
+      <button id="menu-btn" type="button" class="grid size-11 place-items-center rounded-full border-[1.5px] border-ink lg:hidden" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path id="ic-open" d="M3 6h14M3 10h14M3 14h14"/><path id="ic-close" class="hidden" d="M5 5l10 10M15 5L5 15"/></svg>
       </button>
     </div>
   </div>
   <nav id="mobile-nav" class="hidden border-t border-rule bg-white lg:hidden" aria-label="Mobile">
     <div class="wrap flex flex-col py-2">
-      {links.map(([l, h]) => <a href={h} class="border-b border-rule py-4 text-[17px] font-medium text-ink">{l}</a>)}
-      <a href="#contact" class="btn btn-dark my-4">Contact us</a>
+      {links.map(([l, h]) => <a href={h} class="border-b border-rule py-4 text-[18px] font-semibold text-ink">{l}</a>)}
+      <a href="#contact" class="btn btn-primary my-4">Contact us</a>
     </div>
   </nav>
 </header>
@@ -35,7 +35,7 @@ const links = [['Features', '#features'], ['How it works', '#how-it-works'], ['P
   };
   btn.addEventListener('click', () => setOpen(btn.getAttribute('aria-expanded') !== 'true'));
   nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
-  const onScroll = () => header.classList.toggle('shadow-[0_1px_0_#e2e4e7]', window.scrollY > 8);
+  const onScroll = () => header.classList.toggle('shadow-[0_1px_0_#e4e5e8]', window.scrollY > 8);
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 </script>

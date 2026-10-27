@@ -3,5 +3,5 @@ interface Props { role: 'customer' | 'assistant'; size?: 'sm' | 'md'; class?: st
 const { role, size = 'md', class: cls = '' } = Astro.props;
 ---
 <div class:list={['flex', role === 'customer' ? 'justify-end' : 'justify-start']}>
-  <div class:list={['bubble', role === 'customer' ? 'bubble-customer' : 'bubble-assistant', size === 'md' ? 'max-w-[428px] text-[15px]' : 'max-w-[82%] text-[13px]', cls]}><slot /></div>
+  <div class:list={['bubble', role === 'customer' ? 'bubble-customer' : 'bubble-assistant', size === 'md' ? 'max-w-[400px] text-[16px]' : 'max-w-[82%] text-[14px]', cls]}><slot /></div>
 </div>

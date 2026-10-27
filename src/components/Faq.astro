@@ -9,20 +9,22 @@ const faqs = [
 ];
 ---
 <section id="faq" class="bg-white">
-  <div class="wrap py-16 lg:py-[120px]">
-    <div class="grid gap-10 lg:grid-cols-[minmax(0,380px)_minmax(0,720px)] lg:justify-between lg:gap-12">
-      <div class="flex flex-col gap-5">
+  <div class="wrap py-16 lg:py-28">
+    <div class="grid gap-10 lg:grid-cols-[minmax(0,380px)_minmax(0,1fr)] lg:gap-20">
+      <div class="flex flex-col gap-5 lg:sticky lg:top-28 lg:self-start">
         <h2 class="h2">Common questions</h2>
-        <p class="lead max-w-[360px]">Something else on your mind? Email <a href="mailto:hello@whitelabelpress.com" class="underline decoration-border-strong underline-offset-2 hover:text-accent">hello@whitelabelpress.com</a> and someone from the team will reply.</p>
+        <p class="lead">Something else on your mind? Email <a href="mailto:hello@whitelabelpress.com" class="font-semibold text-ink underline decoration-accent decoration-2 underline-offset-4 hover:decoration-ink">hello@whitelabelpress.com</a> and someone from the team will reply.</p>
       </div>
-      <div class="border-t border-ink">
+      <div class="flex flex-col gap-3">
         {faqs.map(([q, a], i) => (
-          <details class="faq border-b border-rule" open={i === 0}>
-            <summary class="flex items-center justify-between gap-6 py-6">
-              <span class="text-[19px] font-semibold leading-[1.35] tracking-[-0.2px] text-ink">{q}</span>
-              <span class="shrink-0 text-[24px] leading-none text-ink" aria-hidden="true"><span class="t-plus">+</span><span class="t-minus text-accent">–</span></span>
+          <details class="faq group rounded-panel bg-stage transition-colors open:bg-white open:shadow-[inset_0_0_0_1.5px_var(--color-rule)]" open={i === 0}>
+            <summary class="flex items-center justify-between gap-6 rounded-panel px-6 py-5 sm:px-7">
+              <span class="text-[18px] font-bold leading-[1.35] text-ink">{q}</span>
+              <span class="faq-icon grid size-9 shrink-0 place-items-center rounded-full bg-white text-ink group-open:bg-accent" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 1.5v11M1.5 7h11"/></svg>
+              </span>
             </summary>
-            <p class="-mt-[12px] max-w-[620px] pb-6 text-[16px] leading-[1.6] text-graphite">{a}</p>
+            <p class="max-w-[640px] px-6 pb-6 text-[17px] leading-[1.6] text-graphite sm:px-7">{a}</p>
           </details>
         ))}
       </div>
