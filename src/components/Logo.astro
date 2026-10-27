@@ -3,7 +3,8 @@ interface Props { tone?: 'light' | 'dark'; size?: 'nav' | 'footer' }
 const { tone = 'light', size = 'nav' } = Astro.props;
 const dark = tone === 'dark';
 ---
-<a href="/" class="flex min-h-11 shrink-0 items-center gap-[10px] whitespace-nowrap" aria-label="WhitelabelPRESS AI Front Desk, home">
+<a href="/" class:list={['flex min-h-11 items-center gap-[10px] whitespace-nowrap', size === 'footer' ? 'flex-wrap gap-y-2' : 'shrink-0']} aria-label="WhitelabelPRESS AI Front Desk, home">
+  <img src="/logo-mark.webp" alt="" width="36" height="36" class:list={['shrink-0', size === 'nav' ? 'size-8 min-[400px]:size-9' : 'size-9']} />
   <span class:list={['font-brand font-semibold tracking-[-0.01em] [font-feature-settings:normal]', size === 'nav' ? 'text-[18px] leading-[1.2] min-[400px]:text-[20px]' : 'text-[20px] leading-[1.2]', dark ? 'text-white' : 'text-ink']}>Whitelabel<strong class="font-extrabold">PRESS</strong></span>
   <span class:list={['whitespace-nowrap rounded-full px-[10px] py-[3px] text-[13px] font-semibold leading-[1.4]', size === 'nav' && 'hidden sm:inline', dark ? 'bg-ink-raised text-on-dark-muted' : 'bg-stage text-graphite']}>AI Front Desk</span>
 </a>
