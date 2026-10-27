@@ -4,10 +4,9 @@ import heroPhoto from '../assets/img/hero-barber.jpg';
 ---
 <section class="on-teal bg-accent">
   <div class="wrap pt-10 sm:pt-14 min-[1240px]:pt-20">
-    <div class="flex flex-col gap-10 min-[1240px]:flex-row min-[1240px]:items-end min-[1240px]:justify-between min-[1240px]:gap-0">
+    <div class="flex flex-col gap-8 min-[1240px]:flex-row min-[1240px]:items-end min-[1240px]:justify-between min-[1240px]:gap-0">
       <div class="flex max-w-[560px] flex-col gap-5 pt-0 min-[1240px]:w-[560px] min-[1240px]:shrink-0 min-[1240px]:gap-7 min-[1240px]:pb-24 min-[1240px]:pt-4">
-        <p class="text-[16px] font-semibold leading-[1.3] text-on-accent-muted">AI Front Desk by WhitelabelPRESS</p>
-        <h1 class="text-[clamp(42px,12vw,74px)] font-bold leading-[0.98] tracking-[-1.6px] text-white">Your AI front desk that answers questions, books appointments, and never sleeps.</h1>
+        <h1 class="text-[clamp(40px,11vw,68px)] font-bold leading-[0.98] tracking-[-1.4px] text-white">Your AI front desk answers, books, and never sleeps.</h1>
         <p class="max-w-[500px] text-[18px] leading-[1.6] text-on-accent-muted">It lives on your website and handles customer conversations from the first question to the booked appointment. Train it on your own FAQs and documents, and step in from a simple dashboard whenever a person is needed.</p>
         <div class="flex flex-wrap gap-3">
           <a href="#early-access" class="btn btn-dark">Get early access</a>
@@ -17,7 +16,7 @@ import heroPhoto from '../assets/img/hero-barber.jpg';
       </div>
 
       <div class="relative mx-auto w-full max-w-[540px] min-[1240px]:mx-0 min-[1240px]:h-[700px] min-[1240px]:w-[620px] min-[1240px]:max-w-none">
-        <Image src={heroPhoto} alt="Barber in a navy work shirt smiling at the camera in his shop" widths={[360, 540, 760, 1080]} sizes="(min-width: 1240px) 540px, 100vw" format="webp" quality={78} loading="eager" class="block h-[400px] w-full rounded-2xl object-cover min-[1240px]:absolute min-[1240px]:right-0 min-[1240px]:top-0 min-[1240px]:h-[700px] min-[1240px]:w-[540px] min-[1240px]:rounded-b-none" />
+        <Image src={heroPhoto} alt="Barber in a navy work shirt smiling at the camera in his shop" widths={[360, 540, 760, 1080]} sizes="(min-width: 1240px) 540px, 100vw" format="webp" quality={78} loading="eager" class="block h-[200px] w-full rounded-2xl sm:max-[1239px]:h-[320px] object-cover min-[1240px]:absolute min-[1240px]:right-0 min-[1240px]:top-0 min-[1240px]:h-[700px] min-[1240px]:w-[540px] min-[1240px]:rounded-b-none" />
 
         <!-- Booking card: floats over the photo to show the result of the chat -->
         <div class="absolute right-3 top-4 flex w-[260px] items-center gap-[14px] rounded-ui bg-white py-[14px] pl-[14px] pr-4 shadow-[0_16px_32px_rgb(11_18_32/0.2)] sm:right-0 min-[1240px]:left-[380px] min-[1240px]:right-auto min-[1240px]:top-16">
@@ -33,7 +32,7 @@ import heroPhoto from '../assets/img/hero-barber.jpg';
         </div>
 
         <!-- Chat widget -->
-        <div class="relative -mt-32 mb-8 w-[330px] max-w-[calc(100%-16px)] overflow-hidden rounded-[14px] border border-border-table bg-white shadow-[0_24px_48px_rgb(11_31_28/0.28)] min-[1240px]:absolute min-[1240px]:left-0 min-[1240px]:top-[250px] min-[1240px]:mb-0 min-[1240px]:mt-0">
+        <div class="relative -mt-24 mb-8 w-[330px] max-w-[calc(100%-16px)] overflow-hidden rounded-[14px] border border-border-table bg-white shadow-[0_24px_48px_rgb(11_31_28/0.28)] min-[1240px]:absolute min-[1240px]:left-0 min-[1240px]:top-[250px] min-[1240px]:mb-0 min-[1240px]:mt-0">
           <div class="flex items-center justify-between border-b border-rule px-4 py-[14px]">
             <span class="text-[14px] font-semibold leading-[1.3] text-ink">Northside Barbers</span>
             <span class="text-[12px] font-medium leading-[1.3] text-accent">Replies instantly</span>

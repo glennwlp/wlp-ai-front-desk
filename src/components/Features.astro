@@ -7,7 +7,7 @@ const inbox = [
   ['Priya K.', 'Haircut + beard, Sat 9:30', 'Booked', 'bg-accent-wash text-accent-ink'],
   ['Tom W.', 'Do you take card?', 'Answered', 'bg-wash text-graphite'],
 ];
-const row = 'grid gap-6 border-b border-rule py-9 lg:grid-cols-[minmax(0,600px)_minmax(0,440px)] lg:justify-between lg:gap-10';
+const row = 'grid gap-6 border-b border-rule py-7 lg:grid-cols-[minmax(0,600px)_minmax(0,440px)] lg:justify-between lg:gap-10';
 const annot = 'order-first flex max-w-[440px] flex-col gap-[10px] lg:order-none';
 const cap = 'text-[20px] font-semibold leading-[1.3] tracking-[-0.2px] text-ink';
 const desc = 'max-w-[420px] text-[16px] leading-[1.6] text-graphite';
@@ -33,34 +33,24 @@ const desc = 'max-w-[420px] text-[16px] leading-[1.6] text-graphite';
         <div class={annot}><h3 class={cap + ' !font-body'}>Trained on your business</h3><p class={desc}>Upload your price list, FAQs, and policies. It answers from what you’ve given it and nothing else.</p></div>
       </div>
 
-      <!-- Answers questions end to end -->
+      <!-- One continuous thread: answers, books, reminds -->
       <div class={row}>
         <div class="flex flex-col gap-[10px]">
           <Bubble role="customer">How much is a haircut? And do you do beards?</Bubble>
           <Bubble role="assistant">A haircut is $38. A beard trim is $22, or $55 if you book both together.</Bubble>
-        </div>
-        <div class={annot}><h3 class={cap + ' !font-body'}>Answers questions end to end</h3><p class={desc}>Prices, hours, parking, policies. Customers get the full answer straight away, not “someone will get back to you.”</p></div>
-      </div>
-
-      <!-- Books appointments -->
-      <div class={row}>
-        <div class="flex flex-col gap-[10px]">
           <Bubble role="customer">Can I get both on Saturday morning?</Bubble>
           <Bubble role="assistant">Sam has 9:30 or 11:00 on Saturday. Which works?</Bubble>
-          <Bubble role="customer" class="min-w-[182px]">9:30</Bubble>
+          <Bubble role="customer">9:30</Bubble>
           <Bubble role="assistant">Done. Haircut and beard trim with Sam, Saturday at 9:30.</Bubble>
-        </div>
-        <div class={annot}><h3 class={cap + ' !font-body'}>Books appointments</h3><p class={desc}>The same assistant checks your calendar and books the slot without leaving the chat.</p></div>
-      </div>
-
-      <!-- Sends reminders -->
-      <div class={row}>
-        <div class="flex flex-col gap-[10px]">
-          <p class="text-[13px] font-medium leading-[1.4] text-faint">Friday, 6:00 PM</p>
+          <p class="pt-2 text-[13px] font-medium leading-[1.4] text-faint">Friday, 6:00 PM</p>
           <Bubble role="assistant">Reminder: you’re with Sam tomorrow at 9:30. Reply C to confirm or R to reschedule.</Bubble>
-          <Bubble role="customer" class="min-w-[182px]">C</Bubble>
+          <Bubble role="customer">C</Bubble>
         </div>
-        <div class={annot}><h3 class={cap + ' !font-body'}>Sends reminders</h3><p class={desc}>A reminder goes out the day before. Customers confirm or reschedule by replying.</p></div>
+        <div class="flex max-w-[440px] flex-col gap-6">
+          <div class="flex flex-col gap-[10px]"><h3 class={cap + ' !font-body'}>Answers questions end to end</h3><p class={desc}>Prices, hours, parking, policies. Customers get the full answer straight away, not “someone will get back to you.”</p></div>
+          <div class="flex flex-col gap-[10px]"><h3 class={cap + ' !font-body'}>Books appointments</h3><p class={desc}>The same assistant checks your calendar and books the slot without leaving the chat.</p></div>
+          <div class="flex flex-col gap-[10px]"><h3 class={cap + ' !font-body'}>Sends reminders</h3><p class={desc}>A reminder goes out the day before. Customers confirm or reschedule by replying.</p></div>
+        </div>
       </div>
 
       <!-- Hands off to a human -->

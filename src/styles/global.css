@@ -19,13 +19,13 @@
   --color-border-strong: #c9cdd2;
   --color-border-dark: #3a3f45;
   --color-graphite: #5d646d;
-  --color-faint: #9aa1a9;
+  --color-faint: #666d75;
   --color-on-dark-muted: #aeb4bb;
   --color-on-dark-faint: #7d848c;
   --color-accent: #0b7a72;
   --color-accent-ink: #075a54;
   --color-accent-wash: #e2f1ee;
-  --color-on-accent-muted: #cfe8e3;
+  --color-on-accent-muted: #e6f4f1;
   --color-warning: #b54708;
   --color-warning-wash: #fef0c7;
   --color-danger: #b42318;
@@ -42,7 +42,8 @@
 @layer base {
   html { scroll-behavior: smooth; scroll-padding-top: 72px; }
   body { font-family: var(--font-body); color: var(--color-ink); background: var(--color-paper); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-  h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; }
+  h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; text-wrap: balance; }
+  p, li, summary, blockquote { text-wrap: pretty; }
   :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
   .on-teal :focus-visible, .on-dark :focus-visible { outline-color: #fff; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
