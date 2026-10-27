@@ -13,11 +13,11 @@ const cards = [
 <section class="bg-stage">
   <div class="wrap py-16 lg:py-28">
     <SectionHeader title="Made for businesses that run on appointments">If your day is a calendar of customers, and your phone and inbox never stop, it was built for you.</SectionHeader>
-    <div class="mt-12 grid gap-10 md:grid-cols-3 md:gap-6 lg:mt-16">
-      {cards.map((c) => (
+    <div data-anim class="mt-12 grid gap-10 md:grid-cols-3 md:gap-6 lg:mt-16">
+      {cards.map((c, i) => (
         <article class="flex flex-col">
           <Image src={c.img} alt={c.alt} widths={[400, 760]} sizes="(min-width: 768px) 33vw, 100vw" format="webp" quality={76} class="aspect-[4/3] w-full rounded-panel object-cover" />
-          <div class="relative z-10 mx-4 -mt-12 flex flex-1 flex-col gap-3 rounded-[22px] rounded-tl-[6px] bg-white p-5 shadow-[var(--shadow-float)]">
+          <div data-step style={`--d:${200 + i * 160}ms`} class="relative z-10 mx-4 -mt-12 flex flex-1 flex-col gap-3 rounded-[22px] rounded-tl-[6px] bg-white p-5 shadow-[var(--shadow-float)]">
             <p class="text-[16px] leading-[1.5] text-ink">{c.quote}</p>
             <p class="mt-auto text-[14px] font-semibold leading-[1.3] text-faint">{c.who}</p>
           </div>

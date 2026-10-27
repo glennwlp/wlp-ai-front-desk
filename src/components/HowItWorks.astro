@@ -10,8 +10,8 @@ const steps = [
 <section id="how-it-works" class="bg-white">
   <div class="wrap py-16 lg:py-28">
     <SectionHeader title="Set up in an afternoon">No code to write. If you can fill in a form and paste one line into your website, you can launch it.</SectionHeader>
-    <ol class="relative mt-12 grid gap-8 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-6">
-      <span class="absolute left-[28px] right-[28px] top-[28px] hidden h-[2px] bg-rule lg:block" aria-hidden="true"></span>
+    <ol data-anim data-seq="260" class="relative mt-12 grid gap-8 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-6">
+      <span data-step="line" class="absolute left-[28px] right-[28px] top-[28px] hidden h-[2px] bg-rule lg:block" aria-hidden="true"></span>
       {steps.map(([n, t, d], i) => (
         <li class="relative flex flex-col gap-3">
           <span class:list={['grid size-14 place-items-center rounded-full text-[22px] font-extrabold leading-none ring-8 ring-white', i === 3 ? 'bg-accent text-ink' : 'bg-ink text-white']}>{n}</span>

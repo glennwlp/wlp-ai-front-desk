@@ -15,9 +15,27 @@ const { title, description } = Astro.props;
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
+  <script is:inline>if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) document.documentElement.classList.add('motion');</script>
 </head>
 <body>
   <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[60] focus:rounded-control focus:bg-ink focus:px-4 focus:py-3 focus:text-white">Skip to content</a>
   <slot />
+  <script is:inline>
+    // Scroll scenes: [data-anim] plays once when it enters view. Children of [data-seq] get staggered steps.
+    (function () {
+      if (!document.documentElement.classList.contains('motion')) return;
+      document.querySelectorAll('[data-seq]').forEach(function (el) {
+        var gap = +el.dataset.seq, base = +(el.dataset.seqBase || 0);
+        [].forEach.call(el.children, function (c, i) {
+          if (!c.dataset.step) c.dataset.step = el.dataset.seqKind || 'rise';
+          c.style.setProperty('--d', base + i * gap + 'ms');
+        });
+      });
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+      }, { threshold: 0.3, rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('[data-anim]').forEach(function (el) { io.observe(el); });
+    })();
+  </script>
 </body>
 </html>

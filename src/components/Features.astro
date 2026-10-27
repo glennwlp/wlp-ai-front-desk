@@ -18,17 +18,17 @@ const desc = 'max-w-[460px] text-[18px] leading-[1.6] text-graphite';
     <div class="mt-12 flex flex-col gap-16 lg:mt-20 lg:gap-24">
       <!-- Trained on your business -->
       <div class={row}>
-        <div class={stage}>
+        <div data-anim class={stage}>
           <div class="mx-auto w-full max-w-[400px] rounded-[20px] bg-white p-5 shadow-[var(--shadow-float)]">
             <div class="flex items-center justify-between gap-3"><p class="text-[14px] font-bold leading-[1.3] text-ink">Knowledge</p><span class="rounded-full bg-stage px-[10px] py-[3px] text-[12px] font-semibold leading-[1.3] text-graphite">Sample</span></div>
-            <ul class="mt-3 flex flex-col gap-2">
+            <ul data-seq="150" data-seq-base="150" data-seq-kind="left" class="mt-3 flex flex-col gap-2">
               {files.map((f) => (
                 <li class="flex items-center gap-3 rounded-[12px] bg-stage px-3 py-[10px] text-[15px] font-medium leading-[1.3] text-ink">
                   <svg class="shrink-0 text-accent-ink" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M4 1.75h6.5L14 5.25v11H4z"/><path d="M10.25 1.75v3.75H14"/></svg>{f}
                 </li>
               ))}
             </ul>
-            <p class="mt-4 flex items-center gap-2 text-[13px] font-semibold leading-[1.4] text-accent-ink"><span class="size-[7px] rounded-full bg-accent" aria-hidden="true"></span>4 documents, trained 2 minutes ago</p>
+            <p data-step="fade" style="--d:950ms" class="mt-4 flex items-center gap-2 text-[13px] font-semibold leading-[1.4] text-accent-ink"><span class="size-[7px] rounded-full bg-accent" aria-hidden="true"></span>4 documents, trained 2 minutes ago</p>
           </div>
         </div>
         <div class="flex flex-col gap-4"><h3 class={cap}>Trained on your business</h3><p class={desc}>Upload your price list, FAQs, and policies. It answers from what you’ve given it and nothing else.</p></div>
@@ -36,8 +36,8 @@ const desc = 'max-w-[460px] text-[18px] leading-[1.6] text-graphite';
 
       <!-- One continuous thread: answers, books, reminds -->
       <div class={row}>
-        <div class:list={[stage, 'lg:order-2 max-lg:mb-8']}>
-          <div class="mx-auto flex w-full max-w-[440px] flex-col gap-[10px]">
+        <div data-anim class:list={[stage, 'lg:order-2 max-lg:mb-8']}>
+          <div data-seq="220" data-seq-base="150" class="mx-auto flex w-full max-w-[440px] flex-col gap-[10px]">
             <Bubble role="customer" size="sm">How much is a haircut? And do you do beards?</Bubble>
             <Bubble role="assistant" size="sm">A haircut is $38. A beard trim is $22, or $55 if you book both together.</Bubble>
             <Bubble role="customer" size="sm">Can I get both on Saturday morning?</Bubble>
@@ -48,7 +48,7 @@ const desc = 'max-w-[460px] text-[18px] leading-[1.6] text-graphite';
             <Bubble role="assistant" size="sm">Reminder: you’re with Sam tomorrow at 9:30. Reply C to confirm or R to reschedule.</Bubble>
             <Bubble role="customer" size="sm">C</Bubble>
           </div>
-          <div class="absolute -bottom-6 left-5 flex items-center gap-3 rounded-[18px] bg-white py-[10px] pl-[10px] pr-4 shadow-[var(--shadow-lift)] sm:left-8 lg:-left-6" aria-hidden="true">
+          <div data-step="pop" style="--d:2300ms" class="absolute -bottom-6 left-5 flex items-center gap-3 rounded-[18px] bg-white py-[10px] pl-[10px] pr-4 shadow-[var(--shadow-lift)] sm:left-8 lg:-left-6" aria-hidden="true">
             <span class="flex size-11 flex-col items-center justify-center rounded-[12px] bg-accent text-ink"><span class="text-[10px] font-bold leading-none">Sat</span><span class="text-[18px] font-extrabold leading-none">14</span></span>
             <span class="flex flex-col"><span class="text-[13px] font-bold leading-[1.3] text-ink">Haircut + beard trim</span><span class="text-[12px] leading-[1.3] text-graphite">9:30 with Sam</span></span>
           </div>
@@ -62,11 +62,11 @@ const desc = 'max-w-[460px] text-[18px] leading-[1.6] text-graphite';
 
       <!-- Hands off to a human -->
       <div class={row}>
-        <div class:list={[stage, '!min-h-[240px] max-lg:mb-8']}>
-          <div class="mx-auto flex w-full max-w-[440px] flex-col gap-[10px]">
+        <div data-anim class:list={[stage, '!min-h-[240px] max-lg:mb-8']}>
+          <div data-seq="500" data-seq-base="150" class="mx-auto flex w-full max-w-[440px] flex-col gap-[10px]">
             <Bubble role="customer" size="sm">Can I bring my own beard oil? I’m allergic to some.</Bubble>
             <Bubble role="assistant" size="sm">That’s a question for Sam. I’ve sent this chat over, and the team usually replies within the hour.</Bubble>
-            <div class="absolute -bottom-5 right-5 flex items-center gap-3 rounded-full bg-white py-[6px] pl-[6px] pr-4 shadow-[var(--shadow-lift)] sm:right-8 lg:-right-6">
+            <div data-step="right" class="absolute -bottom-5 right-5 flex items-center gap-3 rounded-full bg-white py-[6px] pl-[6px] pr-4 shadow-[var(--shadow-lift)] sm:right-8 lg:-right-6">
               <span class="grid size-8 place-items-center rounded-full bg-ink text-[13px] font-extrabold text-white" aria-hidden="true">S</span>
               <span class="text-[13px] font-semibold leading-[1.3] text-ink">Sent to Sam with the full chat</span>
             </div>
@@ -77,8 +77,8 @@ const desc = 'max-w-[460px] text-[18px] leading-[1.6] text-graphite';
 
       <!-- Dashboard -->
       <div class={row}>
-        <div class:list={[stage, 'lg:order-2']}>
-          <div class="mx-auto w-full max-w-[460px] overflow-hidden rounded-[20px] bg-white shadow-[var(--shadow-float)]" role="table" aria-label="Sample inbox">
+        <div data-anim class:list={[stage, 'lg:order-2']}>
+          <div data-seq="160" data-seq-base="100" class="mx-auto w-full max-w-[460px] overflow-hidden rounded-[20px] bg-white shadow-[var(--shadow-float)]" role="table" aria-label="Sample inbox">
             <div class="flex items-center justify-between gap-3 border-b border-rule px-4 py-3" aria-hidden="true"><span class="text-[14px] font-bold leading-[1.3] text-ink">Inbox</span><span class="rounded-full bg-stage px-[10px] py-[3px] text-[12px] font-semibold leading-[1.3] text-graphite">Sample</span></div>
             {inbox.map(([name, msg, status, tone], i) => (
               <div role="row" class:list={['flex items-center gap-3 px-4 py-4 sm:gap-4', i > 0 && 'border-t border-rule']}>

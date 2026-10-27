@@ -42,16 +42,16 @@ import heroPhoto from '../assets/img/hero-barber.jpg';
           </div>
         </div>
         <div class="flex flex-col gap-[10px] bg-stage/60 p-4">
-          <div class="flex justify-end"><div class="bubble bubble-customer text-[14px]">How much is a haircut?</div></div>
-          <div class="flex"><div class="bubble bubble-assistant max-w-[260px] text-[14px]">A haircut is $38 and takes about 30 minutes. Want me to find you a time?</div></div>
-          <div class="flex justify-end"><div class="bubble bubble-customer text-[14px]">Saturday morning?</div></div>
-          <div class="flex"><div class="bubble bubble-assistant max-w-[260px] text-[14px]">Sam has 9:30 or 11:00 this Saturday.</div></div>
-          <div class="flex gap-2" role="group" aria-label="Pick a time">
+          <div class="demo-msg flex justify-end"><div class="bubble bubble-customer text-[14px]">How much is a haircut?</div></div>
+          <div class="demo-msg relative flex"><span class="demo-typing bubble bubble-assistant" aria-hidden="true"><i></i><i></i><i></i></span><div class="bubble bubble-assistant max-w-[260px] text-[14px]">A haircut is $38 and takes about 30 minutes. Want me to find you a time?</div></div>
+          <div class="demo-msg flex justify-end"><div class="bubble bubble-customer text-[14px]">Saturday morning?</div></div>
+          <div class="demo-msg relative flex"><span class="demo-typing bubble bubble-assistant" aria-hidden="true"><i></i><i></i><i></i></span><div class="bubble bubble-assistant max-w-[260px] text-[14px]">Sam has 9:30 or 11:00 this Saturday.</div></div>
+          <div class="demo-msg flex gap-2" role="group" aria-label="Pick a time">
             {['9:30', '11:00'].map((t, i) => (
-              <button type="button" data-slot={t} aria-pressed={i === 0 ? 'true' : 'false'} class="min-h-10 cursor-pointer rounded-full border-[1.5px] border-ink bg-white px-4 py-[6px] text-[14px] font-bold leading-[1.3] text-ink transition-colors hover:bg-accent-wash aria-pressed:border-accent aria-pressed:bg-accent disabled:cursor-default">{t}</button>
+              <button type="button" data-slot={t} aria-pressed={i === 0 ? 'true' : 'false'} class="demo-slot min-h-10 cursor-pointer rounded-full border-[1.5px] border-ink bg-white px-4 py-[6px] text-[14px] font-bold leading-[1.3] text-ink hover:bg-accent-wash aria-pressed:border-accent aria-pressed:bg-accent disabled:cursor-default">{t}</button>
             ))}
           </div>
-          <p id="demo-confirm" class="demo-reveal demo-after rounded-[14px] bg-accent-wash px-3 py-2 text-[13px] font-semibold leading-[1.4] text-accent-ink" aria-live="polite">Booked with Sam, Saturday <span data-demo-time>9:30</span>. We’ll remind you on Friday.</p>
+          <p id="demo-confirm" class="demo-reveal demo-after rounded-[14px] bg-accent-wash px-3 py-2 text-[13px] font-semibold leading-[1.4] text-accent-ink">Booked with Sam, Saturday <span data-demo-time>9:30</span>. We’ll remind you on Friday.</p>
           <p class="flex items-center justify-between gap-2 text-[12px] leading-[1.4] text-faint">
             <span id="demo-hint">Sample chat</span>
             <button id="demo-reset" type="button" class="hidden cursor-pointer font-semibold text-graphite underline decoration-1 underline-offset-[3px] hover:text-ink">Replay</button>
@@ -62,9 +62,12 @@ import heroPhoto from '../assets/img/hero-barber.jpg';
   </div>
 </section>
 <script>
-  // Sample chat: visitors pick a time and see the booking land. Without JS it shows the booked state.
+  // Sample chat. Without JS it shows the booked state. With motion allowed, the conversation plays on a
+  // loop (paused on hover, offscreen or in a hidden tab) until the visitor picks a time themselves.
   const chat = document.getElementById('demo-chat')!;
   const card = document.getElementById('demo-booking')!;
+  const confirm = document.getElementById('demo-confirm')!;
+  const rows = [...chat.querySelectorAll<HTMLElement>('.demo-msg')];
   const slots = [...chat.querySelectorAll<HTMLButtonElement>('[data-slot]')];
   const hint = document.getElementById('demo-hint')!;
   const reset = document.getElementById('demo-reset')!;
@@ -77,7 +80,67 @@ import heroPhoto from '../assets/img/hero-barber.jpg';
     hint.textContent = booked ? 'Sample chat' : 'Sample chat: tap a time to book it';
     reset.classList.toggle('hidden', !booked);
   };
-  slots.forEach((b) => b.addEventListener('click', () => setState(b.dataset.slot!)));
-  reset.addEventListener('click', () => { setState(null); slots[0].focus(); });
-  setState(null);
+
+  const show = (n: number) => () => { rows[n].classList.remove('is-typing'); rows[n].classList.add('is-in'); };
+  const typing = (n: number) => () => rows[n].classList.add('is-typing');
+  const steps: [number, () => void][] = [
+    [600, show(0)],
+    [700, typing(1)],
+    [1300, show(1)],
+    [1400, show(2)],
+    [700, typing(3)],
+    [1000, show(3)],
+    [400, show(4)],
+    [1500, () => slots[0].classList.add('is-tap')],
+    [160, () => { slots[0].classList.remove('is-tap'); setState('9:30'); }],
+    [4200, () => { chat.dataset.leaving = ''; rows.forEach((r) => r.classList.remove('is-in')); setState(null); }],
+    [400, () => delete chat.dataset.leaving],
+  ];
+  let step = 0, timer = 0, due = 0, left = -1, stopped = false;
+  const holds = new Set<string>();
+  const tick = () => {
+    if (stopped || holds.size || timer) return;
+    if (left < 0) left = steps[step][0];
+    due = Date.now() + left;
+    timer = window.setTimeout(() => {
+      timer = 0; left = -1;
+      steps[step][1]();
+      step = (step + 1) % steps.length;
+      tick();
+    }, left);
+  };
+  const hold = (why: string, on: boolean) => {
+    if (on) { holds.add(why); if (timer) { clearTimeout(timer); timer = 0; left = Math.max(0, due - Date.now()); } }
+    else { holds.delete(why); tick(); }
+  };
+  const play = () => {
+    stopped = false; step = 0; left = -1;
+    rows.forEach((r) => r.classList.remove('is-in', 'is-typing'));
+    setState(null);
+    chat.dataset.playing = '';
+    tick();
+  };
+  const stop = () => {
+    stopped = true; clearTimeout(timer); timer = 0;
+    delete chat.dataset.playing; delete chat.dataset.leaving;
+    rows.forEach((r) => r.classList.remove('is-typing'));
+  };
+
+  const animate = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  slots.forEach((b) => b.addEventListener('click', () => {
+    stop();
+    confirm.setAttribute('aria-live', 'polite');
+    setState(b.dataset.slot!);
+  }));
+  reset.addEventListener('click', () => {
+    if (animate) play();
+    else { setState(null); slots[0].focus(); }
+  });
+  if (animate) {
+    chat.addEventListener('pointerenter', (e) => e.pointerType === 'mouse' && hold('hover', true));
+    chat.addEventListener('pointerleave', () => hold('hover', false));
+    new IntersectionObserver(([e]) => hold('offscreen', !e.isIntersecting)).observe(chat);
+    document.addEventListener('visibilitychange', () => hold('hidden', document.hidden));
+    play();
+  } else setState(null);
 </script>
