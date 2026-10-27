@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "wlp-ai-front-desk",
+  "name": "wlp-ai-front-desk-night",
   "main": "worker/index.js",
   "compatibility_date": "2025-09-01",
   "workers_dev": true,
