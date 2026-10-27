@@ -1,0 +1,50 @@
+---
+import SectionHeader from './SectionHeader.astro';
+const plans = [
+  {
+    name: 'Starter', price: '$XX', desc: 'For owners who want every question answered, day and night.',
+    items: ['Website chat widget', 'Trained on your FAQs and documents', 'Handoff to you by email', 'Conversation history'],
+    cta: 'Get early access', href: '#early-access', variant: 'secondary',
+  },
+  {
+    name: 'Growth', price: '$XX', badge: 'Includes booking', featured: true, desc: 'For businesses that take bookings every day.',
+    items: ['Everything in Starter', 'Booking with calendar sync', 'Reminders before every appointment', 'Live handoff to your team', 'Messenger, WhatsApp, Instagram when available'],
+    cta: 'Get early access', href: '#early-access', variant: 'primary',
+  },
+  {
+    name: 'Custom', price: 'Coming soon', compact: true, desc: 'For several locations, or agencies setting it up for clients.',
+    items: ['Everything in Growth', 'Multiple locations and calendars', 'Your branding on the widget', 'Help with setup'],
+    cta: 'Talk to us', href: 'mailto:hello@whitelabelpress.com', variant: 'secondary',
+  },
+];
+---
+<section id="pricing" class="bg-wash">
+  <div class="wrap flex flex-col gap-10 pb-16 pt-16 md:gap-12 lg:pb-[120px] lg:pt-28">
+    <SectionHeader title="Pricing">Prices will be confirmed at launch. Businesses that join early access keep their launch price.</SectionHeader>
+    <div class="grid overflow-hidden rounded-ui border border-border-table bg-white lg:grid-cols-3">
+      {plans.map((p, i) => (
+        <div class:list={['relative flex flex-col gap-5 px-6 py-8 sm:px-8 lg:py-9', i > 0 && 'border-t border-rule lg:border-l lg:border-t-0', p.featured && 'bg-paper-tint']}>
+          {p.featured && <span class="absolute inset-x-0 top-0 h-[3px] bg-accent" aria-hidden="true"></span>}
+          <div class="flex items-center justify-between gap-3">
+            <h3 class="font-body text-[20px] font-semibold leading-[1.3] text-ink">{p.name}</h3>
+            {p.badge && <span class="text-[14px] font-semibold leading-[1.3] text-accent">{p.badge}</span>}
+          </div>
+          <p class="flex items-end gap-2">
+            <span class:list={['font-display font-bold leading-none tracking-[-1px] text-ink', p.compact ? 'text-[36px]' : 'text-[48px]']}>{p.price}</span>
+            {!p.compact && <span class="pb-[2px] text-[15px] leading-[1.4] text-graphite">per month</span>}
+          </p>
+          <p class="text-[16px] leading-[1.55] text-graphite">{p.desc}</p>
+          <ul class="flex flex-col gap-[10px]">
+            {p.items.map((it) => (
+              <li class="flex items-start gap-[10px] text-[15px] leading-[1.45] text-ink">
+                <span class="mt-[10px] h-[2px] w-[10px] shrink-0 bg-accent" aria-hidden="true"></span>{it}
+              </li>
+            ))}
+          </ul>
+          <div class="min-h-px flex-1"></div>
+          <a href={p.href} class:list={['btn w-full', p.variant === 'primary' ? 'btn-primary' : 'btn-secondary']}>{p.cta}</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

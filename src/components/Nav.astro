@@ -1,0 +1,41 @@
+---
+import Logo from './Logo.astro';
+const links = [['Features', '#features'], ['How it works', '#how-it-works'], ['Pricing', '#pricing'], ['FAQ', '#faq']];
+---
+<header id="site-header" class="sticky top-0 z-50 bg-white transition-shadow">
+  <div class="wrap relative flex h-[72px] items-center justify-between">
+    <Logo />
+    <div class="flex items-center gap-10">
+      <nav class="hidden items-center gap-10 lg:flex" aria-label="Main">
+        {links.map(([l, h]) => <a href={h} class="text-[15px] font-medium leading-[1.2] text-ink hover:text-accent">{l}</a>)}
+      </nav>
+      <a href="#early-access" class="btn btn-dark hidden sm:inline-flex">Get early access</a>
+      <button id="menu-btn" type="button" class="grid size-11 place-items-center rounded-control border border-border-strong lg:hidden" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path id="ic-open" d="M3 6h14M3 10h14M3 14h14"/><path id="ic-close" class="hidden" d="M5 5l10 10M15 5L5 15"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-nav" class="hidden border-t border-rule bg-white lg:hidden" aria-label="Mobile">
+    <div class="wrap flex flex-col py-2">
+      {links.map(([l, h]) => <a href={h} class="border-b border-rule py-4 text-[17px] font-medium text-ink">{l}</a>)}
+      <a href="#early-access" class="btn btn-dark my-4">Get early access</a>
+    </div>
+  </nav>
+</header>
+<script>
+  const header = document.getElementById('site-header')!;
+  const btn = document.getElementById('menu-btn')!;
+  const nav = document.getElementById('mobile-nav')!;
+  const setOpen = (open: boolean) => {
+    nav.classList.toggle('hidden', !open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.getElementById('ic-open')!.classList.toggle('hidden', open);
+    document.getElementById('ic-close')!.classList.toggle('hidden', !open);
+  };
+  btn.addEventListener('click', () => setOpen(btn.getAttribute('aria-expanded') !== 'true'));
+  nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+  const onScroll = () => header.classList.toggle('shadow-[0_1px_0_#e2e4e7]', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+</script>

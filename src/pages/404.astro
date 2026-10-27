@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base title="Page not found | AI Front Desk by WhitelabelPRESS" description="Page not found.">
+  <Nav />
+  <main id="main" class="bg-white">
+    <div class="wrap flex min-h-[60vh] flex-col items-start justify-center gap-5 py-24">
+      <p class="font-display text-[clamp(88px,22vw,168px)] font-bold leading-[0.9] tracking-[-5px] text-accent">404</p>
+      <h1 class="h2">That page isn’t here.</h1>
+      <p class="lead max-w-[460px]">The link may be old, or the page may have moved. The front desk is still open.</p>
+      <a href="/" class="btn btn-primary mt-2">Back to home</a>
+    </div>
+  </main>
+  <Footer />
+</Base>

@@ -1,0 +1,9 @@
+---
+interface Props { tone?: 'light' | 'dark'; size?: 'nav' | 'footer' }
+const { tone = 'light', size = 'nav' } = Astro.props;
+const dark = tone === 'dark';
+---
+<a href="/" class="flex items-end gap-[10px]" aria-label="WhitelabelPRESS AI Front Desk, home">
+  <span class:list={['font-bold', size === 'nav' ? 'text-[20px] leading-[1.2] tracking-[-0.4px]' : 'text-[18px] leading-[1.2] tracking-[-0.3px]', dark ? 'text-white' : 'text-ink']}>WhitelabelPRESS</span>
+  <span class:list={['pb-[2px] text-[14px] leading-[1.5]', size === 'nav' ? 'font-medium' : 'font-normal', dark ? 'text-on-dark-faint' : 'text-graphite']}>AI Front Desk</span>
+</a>

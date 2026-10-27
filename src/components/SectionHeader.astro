@@ -1,0 +1,8 @@
+---
+interface Props { title: string; class?: string }
+const { title, class: cls = '' } = Astro.props;
+---
+<div class:list={['flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-10', cls]}>
+  <h2 class="h2 max-w-[640px]">{title}</h2>
+  <p class="lead max-w-[460px] md:shrink-0 md:basis-[460px]"><slot /></p>
+</div>
